@@ -28,7 +28,7 @@ public class XMLreader {
 	public static String[][] getInfo(String course, String[] taglist) throws Exception {
 		String[][] txt;
 		String api = "KEYuhyhu9any";
-
+		
 		Document doc = getDocument("https://timeplan.data.uib.no/" + api + "/xml/timeplanliste/now/" + course);
 
 		System.out.println("root of xml file" + doc.getDocumentElement().getNodeName());

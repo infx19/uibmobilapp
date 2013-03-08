@@ -66,6 +66,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	public void makeInformationLayout(String course) {
 		courseLayout.setCourseInfo(course, tagList);
 		courseLayout.refreshDrawableState();
+		bBack.setText(bBack.getText() + " :(");
 	}
 
 	@Override
