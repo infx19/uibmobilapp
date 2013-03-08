@@ -37,3 +37,16 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+.metadata
+.metadata/**/*
+bin/
+*.jar
+*.ipr
+*.iml
+.idea
+*.nxj
+*.nxd
+out/
+*.class
+kinect/.classpath
