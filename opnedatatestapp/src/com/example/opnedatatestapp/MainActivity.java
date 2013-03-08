@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,7 +39,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		setContentView(R.layout.activity_main);
 	
 		inputMsg = (TextView) findViewById(R.id.test);
-		inputMsg.setText("Type the course name (i.e. INF237) to get information.");
+		inputMsg.setText("Type the course name to get information.");
 		inputfield = (EditText) findViewById(R.id.inputField);
 		inputfield.setHint("course name");
 		inputfield.setLines(1);
