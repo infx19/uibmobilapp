@@ -44,7 +44,7 @@ public class Calendarfunctions extends Activity {
 		ContentValues values = new ContentValues();
 		values.put(
 				Calendars.ACCOUNT_NAME,
-				MY_ACCOUNT_NAME);
+				"account_name");
 		values.put(
 				Calendars.ACCOUNT_TYPE, 
 				CalendarContract.ACCOUNT_TYPE_LOCAL);
