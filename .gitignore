@@ -2,7 +2,8 @@
 ###################
 *.com
 *.class
-#*.classpath
+*.classpath
+*.project
 *.dll
 *.exe
 *.o
