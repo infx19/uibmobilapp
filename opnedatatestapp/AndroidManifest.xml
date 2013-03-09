@@ -5,11 +5,9 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="10"
         android:targetSdkVersion="17" />
 <uses-permission android:name="android.permission.INTERNET" /> 
-<uses-permission android:name="android.permission.READ_CALENDAR"/>
-<uses-permission android:name="android.permission.WRITE_CALENDAR"/>
 
     <application
         android:allowBackup="true"
@@ -25,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
     </application>
 
 </manifest>
