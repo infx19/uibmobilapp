@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<event>
+	<type>Fadderstyret</type>
+	<title>Fest</title>
+	<location>Luux</location>
+	<date>14.08</date>
+	<start>22:00</start>
+	<durationHours>5</durationHours>
+	<durationMinutes>0</durationMinutes>
+</event>

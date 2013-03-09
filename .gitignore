@@ -3,7 +3,7 @@
 *.com
 *.class
 *.classpath
-.project
+*.project
 *.dll
 *.exe
 *.o
