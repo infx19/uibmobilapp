@@ -29,19 +29,26 @@ public class EventLayout extends RelativeLayout {
 		rlp2.addRule(BELOW,tvTime.getId());
 		rlp2.addRule(ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
 		LayoutParams rlp3 = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-		rlp3.addRule(BELOW,tvTime.getId());
-		rlp3.addRule(RIGHT_OF, tvName.getId());
+		rlp3.addRule(ALIGN_TOP,tvTime.getId());
 		rlp3.addRule(ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
 
 		this.setLayoutParams(lp);
 		this.addView(tvTime, rlp1);
 		this.addView(tvName,rlp2);
 		this.addView(tvLocation, rlp3);
-		this.setBackgroundColor(Color.WHITE);
+		tvName.setTextSize(20);
+		//this.setBackgroundColor(Color.WHITE);
 		
-		tvTime.setText("00:00 - 03:00");
-		tvName.setText("programmøte");
-		tvLocation.setText("store auditorium");
+	}
+	
+	public EventLayout(Context context, String name, String time,
+			String place) {
+		this(context);
+		
+		tvTime.setText(time);
+		tvName.setText(name);
+		tvLocation.setText(place);
+		// TODO Auto-generated constructor stub
 	}
 
 }
