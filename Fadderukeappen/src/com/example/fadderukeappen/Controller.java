@@ -1,5 +1,12 @@
 package com.example.fadderukeappen;
 
-public class Controller {
+import java.util.ArrayList;
 
+public class Controller {
+	
+	public static ArrayList<Event> getAllEventsOn(Date date) {
+		
+		return null;
+	}
+	
 }

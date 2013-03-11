@@ -37,7 +37,9 @@ public class EventLayout extends RelativeLayout {
 		this.addView(tvName,rlp2);
 		this.addView(tvLocation, rlp3);
 		tvName.setTextSize(20);
-		//this.setBackgroundColor(Color.WHITE);
+		this.setBackgroundColor(Color.WHITE);
+		this.setPadding(5, 5, 5, 5);
+		
 		
 	}
 	
