@@ -18,14 +18,24 @@ public class DayActivity extends Activity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.date = new Date("18.08.2013");
 		setContentView(R.layout.activity_day);
-
 		listLayout = new LinearLayout(this);
 		listLayout.setOrientation(LinearLayout.VERTICAL);
 		listLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
+		
+		Date d = new Date("18.08.2013");
+		displayEventsOnDate(d);
+	}
 
-		for(EventLayout el : getAllEventViewsTest(date)) {
+	protected void displayEventsOnDate(Date date) {
+		this.date = date;
+
+		//insertEventViews(getAllEventViews(date));
+		insertEventViews(getAllEventViewsTest(date));	
+	}
+
+	protected void insertEventViews(ArrayList<EventLayout> eventViews) {
+		for(EventLayout el : eventViews) {
 			FrameLayout borderParent = new FrameLayout(this);
 			borderParent.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT));
 			borderParent.setPadding(0, 1, 0, 1);
@@ -47,7 +57,7 @@ public class DayActivity extends Activity {
 		return eventLayouts;
 
 	}
-	
+
 	protected ArrayList<EventLayout> getAllEventViews(Date date) {
 		ArrayList<Event> events = Controller.getAllEventsOn(date);
 		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
