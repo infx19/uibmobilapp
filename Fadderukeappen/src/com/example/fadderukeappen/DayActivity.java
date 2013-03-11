@@ -6,12 +6,15 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable.Orientation;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 public class DayActivity extends Activity {
+	
+	//bruke onFling() ?
 	Date date;
 	LinearLayout listLayout;
 	LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -23,15 +26,25 @@ public class DayActivity extends Activity {
 		listLayout.setOrientation(LinearLayout.VERTICAL);
 		listLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
 		
-		Date d = new Date("18.08.2013");
-		displayEventsOnDate(d);
+		
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+		    String date = extras.getString("com.example.fadderukeappen.daylist");
+		    Date d = new Date(date);
+		    displayEventsOnDate(d);
+		    Log.d("DEBUG", "Intent date is " + date);
+		} else {
+		
+			Date d = new Date("18.08.2013");
+			displayEventsOnDate(d);
+		}
 	}
 
 	protected void displayEventsOnDate(Date date) {
 		this.date = date;
 
-		//insertEventViews(getAllEventViews(date));
-		insertEventViews(getAllEventViewsTest(date));	
+		insertEventViews(getAllEventViews(date));
+//		insertEventViews(getAllEventViewsTest(date));	
 	}
 
 	protected void insertEventViews(ArrayList<EventLayout> eventViews) {
@@ -65,6 +78,5 @@ public class DayActivity extends Activity {
 			eventLayouts.add(new EventLayout(this, events.get(i).getTitle(), events.get(i).getTime().toString(), events.get(i).getLocation()));
 		}
 		return eventLayouts;
-
 	}
 }

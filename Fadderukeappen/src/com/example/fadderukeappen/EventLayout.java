@@ -12,6 +12,23 @@ public class EventLayout extends RelativeLayout {
 	TextView tvLocation;
 	public EventLayout(Context context) {
 		super(context);
+		makeEventLayout(context);
+	}
+	
+	public EventLayout(Context context, String name, String time,
+			String place) {
+		this(context);
+		
+		setInformation(name, time, place);
+	}
+	
+	private void setInformation(String name, String time, String place) {
+		tvTime.setText(time);
+		tvName.setText(name);
+		tvLocation.setText(place);
+	}
+	
+	private void makeEventLayout(Context context) {
 		LayoutParams lp = new LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 		this.setLayoutParams(lp);
 		
@@ -38,18 +55,7 @@ public class EventLayout extends RelativeLayout {
 		this.addView(tvLocation, rlp3);
 		tvName.setTextSize(20);
 		this.setBackgroundColor(Color.WHITE);
-		this.setPadding(5, 5, 5, 5);
-		
-		
-	}
-	
-	public EventLayout(Context context, String name, String time,
-			String place) {
-		this(context);
-		
-		tvTime.setText(time);
-		tvName.setText(name);
-		tvLocation.setText(place);
+		this.setPadding(1, 1, 1, 1);
 	}
 
 }
