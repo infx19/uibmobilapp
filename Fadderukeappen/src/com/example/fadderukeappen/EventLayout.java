@@ -50,7 +50,6 @@ public class EventLayout extends RelativeLayout {
 		tvTime.setText(time);
 		tvName.setText(name);
 		tvLocation.setText(place);
-		// TODO Auto-generated constructor stub
 	}
 
 }
