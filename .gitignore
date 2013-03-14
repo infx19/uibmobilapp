@@ -4,7 +4,7 @@
 *.class
 .classpath
 .project
-project.properties
+#project.properties
 *.dll
 *.exe
 *.o
