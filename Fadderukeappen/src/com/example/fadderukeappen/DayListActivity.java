@@ -49,6 +49,7 @@ public class DayListActivity extends Activity implements OnClickListener{
 			String date = b.getHint().toString();
 		
 			 Intent intent = new Intent(DayListActivity.this, DayActivity.class);
+			 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 			 intent.putExtra("com.example.fadderukeappen.daylist", date);
 		     startActivity(intent);
 			

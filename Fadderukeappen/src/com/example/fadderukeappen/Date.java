@@ -106,4 +106,25 @@ public class Date implements Comparable<Date> {
 		
 		return new Date(year, month, day);
 	}
+
+	public Date prevDate() {
+		int day = getDay();
+		int month = getMonth();
+		int year = getYear();
+		
+		if(getDay() == 1) {
+			day = DAYS_IN_MONTH[getMonth()-1];
+			if(getMonth() == 1) {
+				month = MONTHS_IN_YEAR;
+				year--;
+			} else {
+				month--;
+			}
+			
+		} else {
+			day--;
+		}
+		
+		return new Date(year, month, day);
+	}
 }
