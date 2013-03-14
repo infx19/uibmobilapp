@@ -5,6 +5,9 @@ public class Event {
 	String location;
 	Date date;
 	Time time;
+	
+	public Event() {}
+	
 	public Event(String title, String location, Date date, Time time) {
 		super();
 		this.title = title;
