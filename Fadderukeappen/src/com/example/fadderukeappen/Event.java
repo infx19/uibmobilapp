@@ -14,6 +14,8 @@ public class Event implements Comparable<Event>{
 		this.date = date;
 		this.time = time;
 	}
+	public Event() {
+	}
 	public long getId() {
 		return id;
 	}
@@ -58,6 +60,4 @@ public class Event implements Comparable<Event>{
 			return this.getDate().compareTo(another.getDate());
 		}
 	}
-	
-	
 }
