@@ -1,10 +1,11 @@
 package com.example.fadderukeappen;
 
 public class Event {
-	String title;
-	String location;
-	Date date;
-	Time time;
+	private long id;
+	private String title;
+	private String location;
+	private Date date;
+	private Time time;
 	
 	public Event() {}
 	
@@ -15,6 +16,14 @@ public class Event {
 		this.date = date;
 		this.time = time;
 	}
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
