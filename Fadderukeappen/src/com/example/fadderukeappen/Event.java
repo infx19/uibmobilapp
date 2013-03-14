@@ -1,13 +1,11 @@
 package com.example.fadderukeappen;
 
-public class Event {
+public class Event implements Comparable<Event>{
 	private long id;
 	private String title;
 	private String location;
 	private Date date;
 	private Time time;
-	
-	public Event() {}
 	
 	public Event(String title, String location, Date date, Time time) {
 		super();
@@ -47,6 +45,18 @@ public class Event {
 	}
 	public void setTime(Time time) {
 		this.time = time;
+	}
+	@Override
+	public int compareTo(Event another) {
+		if(this.getDate().compareTo(another.getDate()) == 0) {
+			if(this.getTime().compareTo(another.getTime()) == 0) {
+				return this.getTitle().compareTo(another.getTitle());
+			} else {
+				return this.getTime().compareTo(another.getTime());
+			}
+		} else {
+			return this.getDate().compareTo(another.getDate());
+		}
 	}
 	
 	

@@ -13,6 +13,14 @@ public class Time implements Comparable<Time> {
 		end = HoursAndMins.addHoursAndMins(start, duration);
 	}
 
+	public Time(String startTime, String durationTime) {
+		super();
+		start = HoursAndMins.convertToHoursAndMins(startTime);
+		duration = HoursAndMins.convertToHoursAndMins(durationTime);
+		end = HoursAndMins.addHoursAndMins(start, duration);
+	}
+	
+
 	public HoursAndMins getStart() {
 		return start;
 	}

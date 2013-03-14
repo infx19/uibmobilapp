@@ -66,4 +66,12 @@ public class HoursAndMins implements Comparable<HoursAndMins> {
 		}
 		return new HoursAndMins(hourSum, minSum);
 	}
+
+	public static HoursAndMins convertToHoursAndMins(String startTime) {
+		//HH:MM
+		String[] parts = startTime.split(":");
+		int hour = Integer.parseInt(parts[0]);
+		int min = Integer.parseInt(parts[1]);
+		return new HoursAndMins(hour, min);
+	}
 }

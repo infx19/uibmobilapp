@@ -1,6 +1,8 @@
 package com.example.fadderukeappen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 import android.nfc.NfcAdapter.CreateBeamUrisCallback;
 import android.util.Log;
@@ -25,6 +27,27 @@ public class Controller {
 		}
 		Log.d("DEBUG", "returnerer " + list.size() + " elementer");
 		return list;
+	}
+	
+	public static ArrayList<Event> getAllEvents() {
+		//gets events from XML-files +++
+		return null;
+	}
+	
+	public static ArrayList<Event> getEventsOnDate(Date date) {
+		ArrayList<Event> eventlist = new ArrayList<Event>();
+		for(Event e : getAllEvents()) {
+			if(e.getDate().equals(date)) {
+				eventlist.add(e);
+			}
+		}
+		return eventlist;
+	}
+	
+	public static ArrayList<Event> getEventsOnDateSorted(Date date) {
+		ArrayList<Event> sortedEvents = getEventsOnDate(date);
+		Collections.sort(sortedEvents);
+		return sortedEvents;
 	}
 	
 }
