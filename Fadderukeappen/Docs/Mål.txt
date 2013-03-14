@@ -1,0 +1,21 @@
+﻿Mål:
+
+1) Lære å bruke Android SDK
+
+2) Lære å bruke (Iphone)
+
+3) Lære å programmere i nettverk
+
+4) Bygge opp software fra starten
+
+5) Bruke parprogrammering
+
+6) Bruke git, maven
+
+7) Bruke database
+
+8) Testdrevet utvikling/skrive gode tester
+
+9) Samarbeide med andre parter (informasjon fra fakultet, fadderstyret ++)
+
+10)

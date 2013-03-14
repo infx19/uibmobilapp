@@ -1,5 +1,6 @@
 package com.example.fadderukeappen;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,7 +26,21 @@ public class DBEventDataSource {
 	}
 	
 	public Event createEvent(Event event) {
-		return null;
+		ContentValues values = new ContentValues();
+		values.put(allColumns[1], event.getTitle());
+		values.put(allColumns[2], event.getLocation());
+		values.put(allColumns[3], event.getDate().toString());
+		HoursAndMins start = event.getTime().getStart();
+		values.put(allColumns[4], start.toString());
+		HoursAndMins duration = event.getTime().getDuration();
+		values.put(allColumns[5], duration.toString());
+		long insertId = database.insert(dbEventHelper.getTableName(), null, values);
+		Cursor cursor = database.query(dbEventHelper.getTableName(), allColumns, 
+				allColumns[0]+" = "+insertId, null, null, null, null);
+		cursor.moveToFirst();
+		Event newEvent = cursorToEvent(cursor);
+		cursor.close();
+		return newEvent;
 	}
 	
 	private Event cursorToEvent(Cursor cursor) {

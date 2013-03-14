@@ -69,6 +69,10 @@ public class DBEventHelper extends SQLiteOpenHelper {
 	
 	public String[] getColumns() {
 		//String[] columns = new String[] {COLUMN_ID, COLUMN_TITLE, COLUMN_LOCATION, COLUMN_START, COLUMN_DURATION};
-		return new String[] {COLUMN_ID, COLUMN_TITLE, COLUMN_LOCATION, COLUMN_START, COLUMN_DURATION};
+		return new String[] {COLUMN_ID, COLUMN_TITLE, COLUMN_LOCATION, COLUMN_DATE, COLUMN_START, COLUMN_DURATION};
+	}
+	
+	public String getTableName() {
+		return TABLE_NAME_EVENT;
 	}
 }
