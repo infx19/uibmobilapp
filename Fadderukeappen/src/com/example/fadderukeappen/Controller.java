@@ -20,6 +20,9 @@ public class Controller {
 		for(int i = 0; i < 6; i++) {
 			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
 		}
+		for(int i = 0; i < 6; i++) {
+			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
+		}
 		Log.d("DEBUG", "returnerer " + list.size() + " elementer");
 		return list;
 	}

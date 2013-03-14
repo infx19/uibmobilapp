@@ -22,9 +22,9 @@ public class DayActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_day);
-		listLayout = new LinearLayout(this);
+		listLayout = (LinearLayout) findViewById(R.id.activity_day_lin_lay);
 		listLayout.setOrientation(LinearLayout.VERTICAL);
-		listLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
+		listLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT));
 		
 		
 		Bundle extras = getIntent().getExtras();
@@ -54,9 +54,10 @@ public class DayActivity extends Activity {
 			borderParent.setPadding(0, 1, 0, 1);
 			borderParent.setBackgroundColor(Color.GRAY);
 			borderParent.addView(el);
-			listLayout.addView(borderParent, lp);
+			//listLayout.addView(borderParent, lp);
+			this.addContentView(borderParent, lp);
 		}
-		this.addContentView(listLayout, new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
+		//this.addContentView(listLayout, new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
 
 	}
 

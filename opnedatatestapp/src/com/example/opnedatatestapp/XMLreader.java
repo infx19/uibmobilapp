@@ -15,6 +15,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import android.util.Log;
+
 
 
 public class XMLreader {
@@ -28,9 +30,7 @@ public class XMLreader {
 	public static String[][] getInfo(String course, String[] taglist) throws Exception {
 		String[][] txt;
 		String api = "KEYuhyhu9any";
-		
 		Document doc = getDocument("https://timeplan.data.uib.no/" + api + "/xml/timeplanliste/now/" + course);
-
 		System.out.println("root of xml file" + doc.getDocumentElement().getNodeName());
 		NodeList nodes = doc.getElementsByTagName("info");
 		System.out.println("==========================");
