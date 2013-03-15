@@ -26,6 +26,38 @@
 </event>
 <event>
 	<type>Faculty</type>
+	<title>Informasjonsmøte</title>
+	<location>Auditorium 1</location>
+	<date>17.08.2013</date>
+	<start>12:15</start>
+	<duration>01:45</duration>
+</event>
+<event>
+	<type>Faculty</type>
+	<title>Fest</title>
+	<location>Auditorium 1</location>
+	<date>17.08.2013</date>
+	<start>21:00</start>
+	<duration>04:00</duration>
+</event>
+<event>
+	<type>Faculty</type>
+	<title>Registrering</title>
+	<location>Auditorium 1</location>
+	<date>17.08.2013</date>
+	<start>10:15</start>
+	<duration>01:00</duration>
+</event>
+<event>
+	<type>Faculty</type>
+	<title>Lunsj</title>
+	<location>Auditorium 1</location>
+	<date>17.08.2013</date>
+	<start>11:15</start>
+	<duration>00:30</duration>
+</event>
+<event>
+	<type>Faculty</type>
 	<title>Programmøte</title>
 	<location>Auditorium 1</location>
 	<date>16.08.2013</date>

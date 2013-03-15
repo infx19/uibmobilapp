@@ -67,7 +67,7 @@ public class HoursAndMins implements Comparable<HoursAndMins> {
 		int hourSum = start.getHours() + duration.getHours();
 		int minSum = start.getMinutes() + duration.getMinutes();
 
-		if (minSum > MINUTES_IN_HOUR) {
+		if (minSum >= MINUTES_IN_HOUR) {
 			hourSum++;
 			minSum -= MINUTES_IN_HOUR;
 		}
