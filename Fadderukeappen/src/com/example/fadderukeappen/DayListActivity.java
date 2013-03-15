@@ -15,6 +15,7 @@ public class DayListActivity extends Activity implements OnClickListener{
 	final static String[] DAY_NAMES = {"Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"};
 	ArrayList<Button> dayButtons;
 	LinearLayout linLay;
+	DBEventDataSource dbEventDataSource; 
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -25,6 +26,17 @@ public class DayListActivity extends Activity implements OnClickListener{
 		
 		Date date = new Date(2013, 8, 15);
 		addDaysFromDate(date, 7);
+		
+		ArrayList<Event> events = Controller.getAllEvents();
+		dbEventDataSource = new DBEventDataSource(this);
+		dbEventDataSource.open();
+		for(Event event : events) {
+			dbEventDataSource.createEvent(event);
+		}
+		dbEventDataSource.close();
+		
+		
+		
 	}
 
 	private void addDaysFromDate(Date date, int numberOfDays) {

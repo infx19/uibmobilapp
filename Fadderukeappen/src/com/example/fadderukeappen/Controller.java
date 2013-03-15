@@ -25,13 +25,18 @@ public class Controller {
 		for(int i = 0; i < 6; i++) {
 			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
 		}
-		Log.d("DEBUG", "returnerer " + list.size() + " elementer");
 		return list;
 	}
 	
 	public static ArrayList<Event> getAllEvents() {
-		//gets events from XML-files +++
-		return null;
+		ArrayList<Event> day1 = createEvents(new Date(2013, 8, 15));
+		ArrayList<Event> day2 = createEvents(new Date(2013, 8, 16));
+		ArrayList<Event> day3 = createEvents(new Date(2013, 8, 17));
+		ArrayList<Event> day4 = createEvents(new Date(2013, 8, 18));
+		day1.addAll(day2);
+		day1.addAll(day3);
+		day1.addAll(day4);
+		return day1;
 	}
 	
 	public static ArrayList<Event> getEventsOnDate(Date date) {

@@ -1,6 +1,7 @@
 package com.example.fadderukeappen;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,6 +18,8 @@ import android.view.MotionEvent;
 public class DayActivity extends Activity {
 	
 	 private GestureDetector mGesture;
+	 
+	 private DBEventDataSource dbEventDataSource;
 	
 	//bruke onFling() ?
 	Date date;
@@ -41,6 +44,8 @@ public class DayActivity extends Activity {
 		}
 		
 		 mGesture = new GestureDetector(this, mOnGesture);
+		 dbEventDataSource = new DBEventDataSource(this);
+		 dbEventDataSource.open();
 	}
 
 	@Override
@@ -95,12 +100,15 @@ public class DayActivity extends Activity {
 	}
 
 	protected ArrayList<EventLayout> getAllEventViews(Date date) {
-		ArrayList<Event> events = Controller.getAllEventsOn(date);
+		//ArrayList<Event> events = Controller.getEventsOnDate(date);
+		//Log.d("DEBUG", "DATE: " + date.toString());
+		List<Event> events = dbEventDataSource.getAllEventsOnDate(date);
 		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
 		for(int i = 1; i < events.size(); i++) {
 			eventLayouts.add(new EventLayout(this, events.get(i).getTitle(), events.get(i).getTime().toString(), events.get(i).getLocation()));
 		}
 		return eventLayouts;
+		
 	}
 	
     @Override
@@ -127,7 +135,7 @@ public class DayActivity extends Activity {
             	//intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             	intent.putExtra("com.example.fadderukeappen.daylist", d.toString());
             	startActivity(intent);
-            	
+            	dbEventDataSource.close();
             	return true;
             } else if (velocityX <= -1000) {
             	Date d = date.nextDate();
@@ -137,7 +145,7 @@ public class DayActivity extends Activity {
             	intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             	intent.putExtra("com.example.fadderukeappen.daylist", d.toString());
             	startActivity(intent);
-            	
+            	dbEventDataSource.close();
             }
         	
             return false;

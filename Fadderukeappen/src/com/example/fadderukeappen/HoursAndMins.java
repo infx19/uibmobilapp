@@ -31,7 +31,7 @@ public class HoursAndMins implements Comparable<HoursAndMins> {
 
 	@Override
 	public String toString() {
-		return String.format(Locale.ENGLISH, "%02d:%02d\n", hours, minutes);
+		return String.format(Locale.ENGLISH, "%02d:%02d", hours, minutes);
 	}
 
 	@Override

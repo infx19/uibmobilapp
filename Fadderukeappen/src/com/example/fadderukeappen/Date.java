@@ -20,10 +20,6 @@ public class Date implements Comparable<Date> {
 	public Date(String date) {
 		super();
 		String[] parts = date.split("\\.");
-		Log.d("DEBUG", "LENGTH OF STRING: " + parts.length);
-		for(int i = 0; i < parts.length; i++) {
-			Log.d("DEBUG", "INNHOLD I " + (i+1) + parts[i]);
-		}
 		this.day = Integer.parseInt(parts[0]);
 		this.month = Integer.parseInt(parts[1]);
 		this.year = Integer.parseInt(parts[2]);

@@ -39,6 +39,8 @@ public class DBEventHelper extends SQLiteOpenHelper {
 		super(context, DATABASE_NAME_EVENT, null, DATABASE_VERSION);
 	}
 	
+	
+	
 	/*public void storeEventOnDevice(List<File> files) {
 		FileOutputStream fileOutputStream = null;
 		Resources
@@ -54,7 +56,9 @@ public class DBEventHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL(DATABASE_CREATE);
+		//database.execSQL(DATABASE_CREATE);
+		database.execSQL("create table events(_id integer primary key autoincrement, title text not null, location text not null," +
+				"date text not null, start text not null, duration text not null);");
 		
 	}
 
