@@ -27,16 +27,20 @@ public class DayActivity extends Activity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.d("DEBUG", "OnCreate");
 		setContentView(R.layout.activity_day);
 		listLayout = (LinearLayout) findViewById(R.id.activity_day_linear_layout);
 		listLayout.setOrientation(LinearLayout.VERTICAL);	
 		
 		Bundle extras = getIntent().getExtras();
+		dbEventDataSource = new DBEventDataSource(this);
+		dbEventDataSource.open();
+		
 		if (extras != null) {
 		    String date = extras.getString("com.example.fadderukeappen.daylist");
 		    this.date = new Date(date);
-		    displayEventsOnDate(this.date);
 		    Log.d("DEBUG", "Intent date is " + date);
+		    displayEventsOnDate(this.date);
 		} else {
 		
 			date = new Date("18.08.2013");
@@ -44,13 +48,12 @@ public class DayActivity extends Activity {
 		}
 		
 		 mGesture = new GestureDetector(this, mOnGesture);
-		 dbEventDataSource = new DBEventDataSource(this);
-		 dbEventDataSource.open();
 	}
 
 	@Override
 	protected void onNewIntent(Intent intent) {
 		super.onNewIntent(intent);
+		Log.d("DEBUG", "OnNewIntent");
 		listLayout.removeAllViews();
 		listLayout.setOrientation(LinearLayout.VERTICAL);	
 		
@@ -71,12 +74,12 @@ public class DayActivity extends Activity {
 	
 	protected void displayEventsOnDate(Date date) {
 		this.date = date;
-
 		insertEventViews(getAllEventViews(date));
 //		insertEventViews(getAllEventViewsTest(date));	
 	}
 
-	protected void insertEventViews(ArrayList<EventLayout> eventViews) {
+	protected void insertEventViews(ArrayList<EventLayout> eventViews) {		
+		
 		for(EventLayout el : eventViews) {
 			FrameLayout borderParent = new FrameLayout(this);
 			borderParent.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -102,7 +105,10 @@ public class DayActivity extends Activity {
 	protected ArrayList<EventLayout> getAllEventViews(Date date) {
 		//ArrayList<Event> events = Controller.getEventsOnDate(date);
 		//Log.d("DEBUG", "DATE: " + date.toString());
+		Log.d("DEBUG", "SIZE SHOULD BE: " + Controller.getEventsOnDate(date).size());
+		
 		List<Event> events = dbEventDataSource.getAllEventsOnDate(date);
+		Log.d("DEBUG", "SIZE: " + events.size());
 		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
 		for(int i = 1; i < events.size(); i++) {
 			eventLayouts.add(new EventLayout(this, events.get(i).getTitle(), events.get(i).getTime().toString(), events.get(i).getLocation()));

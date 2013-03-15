@@ -60,4 +60,15 @@ public class Event implements Comparable<Event>{
 			return this.getDate().compareTo(another.getDate());
 		}
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof Event)) {
+			return false;
+		} else {
+			Event compEvent = (Event) o;
+			return this.compareTo(compEvent) == 0;
+		}
+		
+	}
 }

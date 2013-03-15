@@ -75,7 +75,6 @@ public class DBEventDataSource {
 		cursor.moveToFirst();
 		while(!cursor.isAfterLast()) {
 			Event event = cursorToEvent(cursor);
-			Log.d("DEBUG", "DATE: " + event.getDate().toString());
 			if(event.getDate().equals(date)) {
 				events.add(event);
 			}

@@ -50,6 +50,17 @@ public class HoursAndMins implements Comparable<HoursAndMins> {
 
 		}
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof HoursAndMins)) {
+			return false;
+		} else {
+			HoursAndMins comp = (HoursAndMins) o;
+			return this.compareTo(comp) == 0;
+		}
+		
+	}
 
 	public static HoursAndMins addHoursAndMins(HoursAndMins start,
 			HoursAndMins duration) {

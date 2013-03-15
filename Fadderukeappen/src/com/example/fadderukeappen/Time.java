@@ -58,5 +58,16 @@ public class Time implements Comparable<Time> {
 			return this.getEnd().compareTo(another.getEnd());
 		}
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof Time)) {
+			return false;
+		} else {
+			Time comp = (Time) o;
+			return this.compareTo(comp) == 0;
+		}
+		
+	}
 
 }

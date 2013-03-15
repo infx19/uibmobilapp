@@ -81,6 +81,17 @@ public class Date implements Comparable<Date> {
 			}
 		}
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(!(o instanceof Date)) {
+			return false;
+		} else {
+			Date comp = (Date) o;
+			return this.compareTo(comp) == 0;
+		}
+		
+	}
 
 	public Date nextDate() {
 		int day = getDay();
