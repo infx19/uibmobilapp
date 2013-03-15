@@ -73,6 +73,7 @@ public class DBEventDataSource {
 		Cursor cursor = database.query(dbEventHelper.getTableName(), 
 				allColumns, null, null, null, null, null);
 		cursor.moveToFirst();
+		Log.d("count",""+cursor.getCount());
 		while(!cursor.isAfterLast()) {
 			Event event = cursorToEvent(cursor);
 			Log.d("DEBUG", "DATE: " + event.getDate().toString());
