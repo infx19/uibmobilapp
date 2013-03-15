@@ -1,6 +1,7 @@
 package com.example.fadderukeappen;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
@@ -91,23 +92,22 @@ public class DayActivity extends Activity {
 
 	}
 
-	protected ArrayList<EventLayout> getAllEventViewsTest(Date date) {
-		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
-		for(int i = 1; i < 5; i++) {
-			eventLayouts.add(new EventLayout(this, "programmøte", "12:00-14.00", "store auditorium"));
-			eventLayouts.add(new EventLayout(this, "forelesning", "05:00-18.00", "auditorium 1, RFB"));
-			eventLayouts.add(new EventLayout(this, "kurs1", "05:00-18.00", "sted"));
-		}
-		return eventLayouts;
-
-	}
+//	protected ArrayList<EventLayout> getAllEventViewsTest(Date date) {
+//		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
+//		for(int i = 1; i < 5; i++) {
+//			eventLayouts.add(new EventLayout(this, "programmøte", "12:00-14.00", "store auditorium"));
+//			eventLayouts.add(new EventLayout(this, "forelesning", "05:00-18.00", "auditorium 1, RFB"));
+//			eventLayouts.add(new EventLayout(this, "kurs1", "05:00-18.00", "sted"));
+//		}
+//		return eventLayouts;
+//
+//	}
 
 	protected ArrayList<EventLayout> getAllEventViews(Date date) {
 		//ArrayList<Event> events = Controller.getEventsOnDate(date);
-		//Log.d("DEBUG", "DATE: " + date.toString());
-		Log.d("DEBUG", "SIZE SHOULD BE: " + Controller.getEventsOnDate(date).size());
 		
 		List<Event> events = dbEventDataSource.getAllEventsOnDate(date);
+		Collections.sort(events);
 		Log.d("DEBUG", "SIZE: " + events.size());
 		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
 		for(int i = 1; i < events.size(); i++) {

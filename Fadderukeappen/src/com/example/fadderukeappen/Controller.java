@@ -32,6 +32,8 @@ public class Controller {
 		//from XML:
 		String urltest = "https://timeplan.data.uib.no/KEYuhyhu9any/xml/timeplanliste/now/INF237";
 		String url = "https://raw.github.com/livarb/uibmobilapp/master/Fadderukeappen/Docs/XML/e3.xml";
+		//dbEventDataSource.getAllEventsOnDate(date);
+		ArrayList<Event> allEvents = new ArrayList<Event>();
 		ArrayList<Event> eventsFromXML;
 		try {
 			eventsFromXML = XMLParser.getEventsInfoFromURL(urltest);
@@ -41,22 +43,22 @@ public class Controller {
 			e.printStackTrace();
 		}
 		
-		ArrayList<Event> day1 = createEvents(new Date(2013, 8, 15));
+/*		ArrayList<Event> day1 = createEvents(new Date(2013, 8, 15));
 		ArrayList<Event> day2 = createEvents(new Date(2013, 8, 16));
 		ArrayList<Event> day3 = createEvents(new Date(2013, 8, 17));
 		ArrayList<Event> day4 = createEvents(new Date(2013, 8, 18));
 		day1.addAll(day2);
 		day1.addAll(day3);
-		day1.addAll(day4);
+		day1.addAll(day4);*/
 		try {
 			eventsFromXML = XMLParser.getEventsInfoFromURL(url);
-			day1.addAll(eventsFromXML);
+			allEvents.addAll(eventsFromXML);
 		} catch (Exception e) {
 			Log.e("PARSINGERROR", "Couldn't get events from XML");
 			e.printStackTrace();
 		}
 		
-		return day1;
+		return allEvents;
 	}
 	
 	public static ArrayList<Event> getEventsOnDate(Date date) {
