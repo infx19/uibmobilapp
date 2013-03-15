@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<event>
+	<type>Faculty</type>
+	<title>Forelesning: Mat111</title>
+	<location>Auditorium 1</location>
+	<date>15.08.2013</date>
+	<start>12:15</start>
+	<duration>02:45</duration>
+</event>
+<event>
+	<type>Faculty</type>
+	<title>Forelesning: Exphil</title>
+	<location>Auditorium 1</location>
+	<date>15.08.2013</date>
+	<start>13:15</start>
+	<duration>00:45</duration>
+</event>
+<event>
+	<type>Faculty</type>
+	<title>Forelesning: Mat101</title>
+	<location>Auditorium 1</location>
+	<date>15.08.2013</date>
+	<start>11:15</start>
+	<duration>01:45</duration>
+</event>
+<event>
+	<type>Faculty</type>
+	<title>Programmøte</title>
+	<location>Auditorium 1</location>
+	<date>16.08.2013</date>
+	<start>11:15</start>
+	<duration>01:45</duration>
+</event>

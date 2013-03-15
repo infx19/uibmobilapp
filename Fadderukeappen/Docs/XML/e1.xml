@@ -3,8 +3,15 @@
 	<type>Fadderstyret</type>
 	<title>Fest</title>
 	<location>Luux</location>
-	<date>14.08</date>
+	<date>15.08.2013</date>
 	<start>22:00</start>
-	<durationHours>5</durationHours>
-	<durationMinutes>0</durationMinutes>
+	<duration>02:15</duration>
+</event>
+<event>
+	<type>Fadderstyret</type>
+	<title>Programmøte</title>
+	<location>Store auditorium</location>
+	<date>16.08.2013</date>
+	<start>12:15</start>
+	<duration>01:45</duration>
 </event>

@@ -22,13 +22,23 @@ public class Controller {
 		for(int i = 0; i < 6; i++) {
 			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
 		}
-		for(int i = 0; i < 6; i++) {
-			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
-		}
+//		for(int i = 0; i < 6; i++) {
+//			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
+//		}
 		return list;
 	}
 	
 	public static ArrayList<Event> getAllEvents() {
+		//from XML:
+		String url = "https://github.com/livarb/uibmobilapp/tree/master/Fadderukeappen/Docs/XML/e3.xml";
+		ArrayList<Event> eventsFromXML;
+		try {
+			eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+		} catch (Exception e) {
+			Log.e("PARSINGERROR", "Couldn't get events from XML");
+			e.printStackTrace();
+		}
+		
 		ArrayList<Event> day1 = createEvents(new Date(2013, 8, 15));
 		ArrayList<Event> day2 = createEvents(new Date(2013, 8, 16));
 		ArrayList<Event> day3 = createEvents(new Date(2013, 8, 17));
@@ -36,6 +46,7 @@ public class Controller {
 		day1.addAll(day2);
 		day1.addAll(day3);
 		day1.addAll(day4);
+		day1.addAll(eventsFromXML);
 		return day1;
 	}
 	
