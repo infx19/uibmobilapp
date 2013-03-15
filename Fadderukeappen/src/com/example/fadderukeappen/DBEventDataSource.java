@@ -1,5 +1,8 @@
 package com.example.fadderukeappen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -41,6 +44,25 @@ public class DBEventDataSource {
 		Event newEvent = cursorToEvent(cursor);
 		cursor.close();
 		return newEvent;
+	}
+	
+	public void deleteEvent(Event event) {
+		long id = event.getId();
+		System.out.println("Event deleted with id: "+id);
+		database.delete(dbEventHelper.getTableName(), allColumns[0]+" = "+id, null);
+	}
+	
+	public List<Event> getAllEvents() {
+		List<Event> events = new ArrayList<Event>();
+		Cursor cursor = database.query(dbEventHelper.getTableName(), allColumns, null, null, null, null, null);
+		cursor.moveToFirst();
+		while(!cursor.isAfterLast()) {
+			Event event = cursorToEvent(cursor);
+			events.add(event);
+			cursor.moveToNext();
+		}
+		cursor.close();
+		return events;
 	}
 	
 	private Event cursorToEvent(Cursor cursor) {
