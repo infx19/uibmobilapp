@@ -117,6 +117,12 @@ public class DayActivity extends Activity {
 		
 	}
 	
+	@Override
+	public void onBackPressed() {
+		dbEventDataSource.close();
+		super.onBackPressed();	
+	}
+	
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         boolean handled = super.dispatchTouchEvent(ev);
