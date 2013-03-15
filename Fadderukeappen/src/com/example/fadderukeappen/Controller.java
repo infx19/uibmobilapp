@@ -30,12 +30,14 @@ public class Controller {
 	
 	public static ArrayList<Event> getAllEvents() {
 		//from XML:
-		String url = "https://github.com/livarb/uibmobilapp/tree/master/Fadderukeappen/Docs/XML/e3.xml";
+		String urltest = "https://timeplan.data.uib.no/KEYuhyhu9any/xml/timeplanliste/now/INF237";
+		String url = "https://raw.github.com/livarb/uibmobilapp/master/Fadderukeappen/Docs/XML/e3.xml";
 		ArrayList<Event> eventsFromXML;
 		try {
-			eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+			eventsFromXML = XMLParser.getEventsInfoFromURL(urltest);
 		} catch (Exception e) {
 			Log.e("PARSINGERROR", "Couldn't get events from XML");
+			Log.e("TYPE", ""+e.getClass());
 			e.printStackTrace();
 		}
 		
@@ -46,7 +48,14 @@ public class Controller {
 		day1.addAll(day2);
 		day1.addAll(day3);
 		day1.addAll(day4);
-		day1.addAll(eventsFromXML);
+		try {
+			eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+			day1.addAll(eventsFromXML);
+		} catch (Exception e) {
+			Log.e("PARSINGERROR", "Couldn't get events from XML");
+			e.printStackTrace();
+		}
+		
 		return day1;
 	}
 	
