@@ -73,7 +73,6 @@ public class DBEventDataSource {
 		Cursor cursor = database.query(dbEventHelper.getTableName(), 
 				allColumns, null, null, null, null, null);
 		cursor.moveToFirst();
-		Log.d("count",""+cursor.getCount());
 		while(!cursor.isAfterLast()) {
 			Event event = cursorToEvent(cursor);
 			if(event.getDate().equals(date)) {
@@ -92,12 +91,6 @@ public class DBEventDataSource {
 		event.setTitle(cursor.getString(1));
 		event.setLocation(cursor.getString(2));
 		event.setDate(new Date(cursor.getString(3)));
-		//String[] start = cursor.getString(4).split(":");
-		//String[] duration = cursor.getString(5).split(":");
-		//Time time = new Time(Integer.parseInt(start[0]), Integer.parseInt(start[1]), 
-				//Integer.parseInt(duration[0]), Integer.parseInt(duration[1]));
-		//Log.d("parseErr", cursor.getString(4));
-		//Log.d("parseErr", cursor.getString(5));
 		Time time = new Time(cursor.getString(4), cursor.getString(5));
 		
 		event.setTime(time);
