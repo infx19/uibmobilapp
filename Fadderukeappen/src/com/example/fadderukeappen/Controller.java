@@ -83,10 +83,10 @@ public class Controller {
 		try {
 			ArrayList<Event> events = getAllEvents();
 			
-//			db.deleteAllEvents();
-//			for(Event e : events) {
-//				db.createEvent(e);
-//			}
+			db.deleteAllEvents();
+			for(Event e : events) {
+				db.createEvent(e);
+			}
 		} catch (Exception e) {
 			Log.e("PARSINGERROR", "Couldn't get events from XML");
 			e.printStackTrace();

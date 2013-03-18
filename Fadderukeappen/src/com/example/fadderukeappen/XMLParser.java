@@ -62,7 +62,7 @@ public class XMLParser {
 	private static Document getDocument(String url1) throws Exception {
 
 //		
-		System.setProperty("https.proxyHost", "raw.github.com");
+//		System.setProperty("https.proxyHost", "raw.github.com");
 //		System.setProperty("https.proxyPort", "8080");
 
 		// Next connection will be through proxy.
