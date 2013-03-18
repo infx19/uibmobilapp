@@ -22,9 +22,9 @@ public class Controller {
 		for(int i = 0; i < 6; i++) {
 			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
 		}
-		//		for(int i = 0; i < 6; i++) {
-		//			list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
-		//		}
+				for(int i = 0; i < 6; i++) {
+					list.add(new Event(names[i], loc[i] + " " + date.toString(), date, new Time(i, 0, i+1, 0)));
+			}
 		return list;
 	}
 
@@ -57,7 +57,6 @@ public class Controller {
 
 		eventsFromXML = XMLParser.getEventsInfoFromURL(url);
 		allEvents.addAll(eventsFromXML);
-
 
 		return allEvents;
 	}

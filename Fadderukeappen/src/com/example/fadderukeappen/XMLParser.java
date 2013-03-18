@@ -61,16 +61,16 @@ public class XMLParser {
 
 	private static Document getDocument(String url1) throws Exception {
 
-//		
-//		System.setProperty("https.proxyHost", "raw.github.com");
-//		System.setProperty("https.proxyPort", "8080");
+		//		
+		//		System.setProperty("https.proxyHost", "raw.github.com");
+		//		System.setProperty("https.proxyPort", "8080");
 
 		// Next connection will be through proxy.
-//		URL url2 = new URL("http://java.sun.com/");
-//		InputStream in = url2.openStream();
+		//		URL url2 = new URL("http://java.sun.com/");
+		//		InputStream in = url2.openStream();
 
 		// Now, let's 'unset' the proxy.
-//		System.setProperty("http.proxyHost", null);
+		//		System.setProperty("http.proxyHost", null);
 
 		URL url = new URL(url1);
 		Log.d("XML", "skjera");
@@ -80,18 +80,29 @@ public class XMLParser {
 		Log.d("XML", "skjerb");
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		Log.d("XML", "skjerc");
-		
-		InputStream is = conn.getInputStream();
-		Log.d("XML", "skjerd");
-		Document doc = builder.parse(is);
-		Log.d("XML", "skjerv");
-		//		Document d = builder.parse(new File("Fadderukeappen/Docs/XML/e3.xml"));
 
-		doc.getDocumentElement().normalize();
-		//		d.getDocumentElement().normalize();
+		InputStream is = null;
+		try {
+			is = conn.getInputStream();
 
-		//		return d;
-		return doc;
+
+
+
+			Log.d("XML", "skjerd");
+			Document doc = builder.parse(is);
+			Log.d("XML", "skjerv");
+			//		Document d = builder.parse(new File("Fadderukeappen/Docs/XML/e3.xml"));
+
+			doc.getDocumentElement().normalize();
+			//		d.getDocumentElement().normalize();
+
+			return doc;
+			//		return d;
+		} finally {
+			if (is != null) {
+				is.close();
+			}
+		}
 	}
 
 }
