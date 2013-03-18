@@ -117,6 +117,12 @@ public class DayActivity extends Activity {
 		
 	}
 	
+//	protected boolean updateEventsInDayView(Date date) {
+//		dbEventDataSource.
+//		
+//		return true;
+//	}
+	
 	@Override
 	public void onBackPressed() {
 		dbEventDataSource.close();

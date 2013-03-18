@@ -54,6 +54,11 @@ public class DBEventDataSource {
 		database.delete(dbEventHelper.getTableName(), allColumns[0]+" = "+id, null);
 	}
 	
+	public void deleteAllEvents() {
+		System.out.println("All events deleted");
+		database.delete(dbEventHelper.getTableName(), null, null);
+	}
+	
 	public List<Event> getAllEvents() {
 		List<Event> events = new ArrayList<Event>();
 		Cursor cursor = database.query(dbEventHelper.getTableName(), allColumns, null, null, null, null, null);

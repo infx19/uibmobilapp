@@ -27,16 +27,16 @@ public class DayListActivity extends Activity implements OnClickListener{
 		Date date = new Date(2013, 8, 15);
 		addDaysFromDate(date, 7);
 		
-		ArrayList<Event> events = Controller.getAllEvents();
+		
 		dbEventDataSource = new DBEventDataSource(this);
 		dbEventDataSource.open();
-		for(Event event : events) {
-			dbEventDataSource.createEvent(event);
-		}
+		Controller.updateDB(dbEventDataSource);
 		dbEventDataSource.close();
 		
-		
-		
+//		ArrayList<Event> events = Controller.getAllEvents();
+//		for(Event event : events) {
+//			dbEventDataSource.createEvent(event);
+//		}
 	}
 
 	private void addDaysFromDate(Date date, int numberOfDays) {
@@ -52,6 +52,8 @@ public class DayListActivity extends Activity implements OnClickListener{
 		}
 
 	}
+	
+
 
 	@Override
 	public void onClick(View v) {
