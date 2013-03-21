@@ -1,10 +1,7 @@
 package com.example.fadderukeappen;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-
-import android.nfc.NfcAdapter.CreateBeamUrisCallback;
 import android.util.Log;
 
 public class Controller {
@@ -27,24 +24,6 @@ public class Controller {
 			}
 		return list;
 	}
-
-	//	public static ArrayList<Event> getAllEvents() {
-	//		//from XML:
-	//		String url = "https://raw.github.com/livarb/uibmobilapp/master/Fadderukeappen/Docs/XML/e3.xml";
-	//		
-	//		ArrayList<Event> allEvents = new ArrayList<Event>();
-	//		ArrayList<Event> eventsFromXML;
-	//
-	//		try {
-	//			eventsFromXML = XMLParser.getEventsInfoFromURL(url);
-	//			allEvents.addAll(eventsFromXML);
-	//		} catch (Exception e) {
-	//			Log.e("PARSINGERROR", "Couldn't get events from XML");
-	//			e.printStackTrace();
-	//		}
-	//		
-	//		return allEvents;
-	//	}
 
 	public static ArrayList<Event> getAllEvents() throws Exception {
 		//from XML:
