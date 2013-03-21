@@ -32,18 +32,14 @@ public class DayListActivity extends Activity implements OnClickListener{
 		dbEventDataSource.open();
 		Controller.updateDB(dbEventDataSource);
 		dbEventDataSource.close();
-		
-//		ArrayList<Event> events = Controller.getAllEvents();
-//		for(Event event : events) {
-//			dbEventDataSource.createEvent(event);
-//		}
+
 	}
 
 	private void addDaysFromDate(Date date, int numberOfDays) {
 		dayButtons = new ArrayList<Button>();
 		for(int i = 0; i < numberOfDays; i++) {
 			Button b = new Button(this);
-			//b.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		
 			b.setText(DAY_NAMES[i%7]);
 			b.setHint(date.toString());
 			b.setOnClickListener(this);
@@ -53,7 +49,6 @@ public class DayListActivity extends Activity implements OnClickListener{
 
 	}
 	
-
 
 	@Override
 	public void onClick(View v) {
