@@ -2,7 +2,7 @@
 ###################
 *.com
 *.class
-.classpath
+#.classpath
 #.project
 #project.properties
 *.dll
