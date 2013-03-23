@@ -21,7 +21,7 @@
 #*.jar
 *.rar
 *.tar
-*.zip
+#*.zip
 
 # Logs and databases #
 ######################
@@ -44,7 +44,6 @@ Thumbs.db
 .metadata/**/*
 .settings/
 bin/
-*.jar
 *.ipr
 *.iml
 .idea
