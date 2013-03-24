@@ -13,9 +13,11 @@ import android.util.Log;
 
 public class DBEventDataSource {
 	
-	private SQLiteDatabase database;
-	private DBEventHelper dbEventHelper;
+	SQLiteDatabase database;
+	DBEventHelper dbEventHelper;
 	private String[] allColumns;
+	
+	public DBEventDataSource() {}
 	
 	public DBEventDataSource(Context context) {
 		dbEventHelper = new DBEventHelper(context);
