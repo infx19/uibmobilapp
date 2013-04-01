@@ -5,10 +5,10 @@ import java.util.Locale;
 public class HoursAndMins implements Comparable<HoursAndMins> {
 	final static int MINUTES_IN_HOUR = 60;
 	final static int HOURS_IN_DAY = 24;
-	int hours;
-	int minutes;
+	private int hours;
+	private int minutes;
 
-	HoursAndMins(int hours, int minutes) {
+	public HoursAndMins(int hours, int minutes) {
 		this.hours = hours;
 		this.minutes = minutes;
 	}
@@ -62,7 +62,7 @@ public class HoursAndMins implements Comparable<HoursAndMins> {
 		
 	}
 
-	public static HoursAndMins addHoursAndMins(HoursAndMins start,
+	public static HoursAndMins calculateEndTime(HoursAndMins start,
 			HoursAndMins duration) {
 		int hourSum = start.getHours() + duration.getHours();
 		int minSum = start.getMinutes() + duration.getMinutes();

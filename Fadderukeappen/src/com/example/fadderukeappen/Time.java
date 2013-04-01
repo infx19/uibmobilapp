@@ -10,14 +10,14 @@ public class Time implements Comparable<Time> {
 		super();
 		start = new HoursAndMins(startHour, startMinutes);
 		duration = new HoursAndMins(durationHour, durationMinutes);
-		end = HoursAndMins.addHoursAndMins(start, duration);
+		end = HoursAndMins.calculateEndTime(start, duration);
 	}
 
 	public Time(String startTime, String durationTime) {
 		super();
 		start = HoursAndMins.convertToHoursAndMins(startTime);
 		duration = HoursAndMins.convertToHoursAndMins(durationTime);
-		end = HoursAndMins.addHoursAndMins(start, duration);
+		end = HoursAndMins.calculateEndTime(start, duration);
 	}
 	
 
