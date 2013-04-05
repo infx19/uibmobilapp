@@ -1,16 +1,20 @@
 package com.example.fadderukeappen;
 
+import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import android.util.Log;
 
 public class XMLParser {
 	private final static String[] EVENT_TAGS = {"date","start", "duration", "title", "location"};
@@ -22,7 +26,9 @@ public class XMLParser {
 	}
 
 	public static ArrayList<Event> getEventsInfoFromURL(String url) throws Exception {
-		Document doc = getDocument(url);	
+		
+		Document doc = getDocument(url);
+		
 		NodeList nodes = doc.getElementsByTagName("event");
 		ArrayList<Event> allEvents = new ArrayList<Event>();
 
@@ -56,12 +62,19 @@ public class XMLParser {
 	private static Document getDocument(String url1) throws Exception {
 		URL url = new URL(url1);
 		URLConnection conn = url.openConnection();
+		System.setProperty("java.net.preferIPv4Stack" , "true");
+		//HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+		//conn.setDoInput(true);
+		//conn.setRequestProperty("Connection", "close");
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		
 		DocumentBuilder builder = factory.newDocumentBuilder();
-
+		
 		InputStream is = null;
 		try {
 			is = conn.getInputStream();
+			is = new BufferedInputStream(is);
+			Log.e("PAST_URL", ".");
 			Document doc = builder.parse(is);
 			doc.getDocumentElement().normalize();
 

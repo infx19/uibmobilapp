@@ -29,14 +29,15 @@ public class Controller {
 		//from XML:
 		String url1 = "https://timeplan.data.uib.no/KEYuhyhu9any/xml/timeplanliste/now/INF237";
 		String url = "https://raw.github.com/livarb/uibmobilapp/master/Fadderukeappen/Docs/XML/e3.xml";
-
+		
 		ArrayList<Event> allEvents = new ArrayList<Event>();
 		ArrayList<Event> eventsFromXML;
 
-
+		Log.e("PAST_URL", ".....");
 		eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+		
 		allEvents.addAll(eventsFromXML);
-
+		
 		return allEvents;
 	}
 
