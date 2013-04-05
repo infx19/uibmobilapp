@@ -34,7 +34,10 @@ public class Controller {
 		ArrayList<Event> eventsFromXML;
 
 
-		eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+		//eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+		DownloadInfoTask async = new DownloadInfoTask();
+		eventsFromXML = async.execute(url).get();
+		
 		allEvents.addAll(eventsFromXML);
 
 		return allEvents;
