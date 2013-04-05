@@ -25,10 +25,15 @@ public class XMLParser {
 		return node.getNodeValue();
 	}
 
-	public static ArrayList<Event> getEventsInfoFromURL(String url) throws Exception {
-		
-		Document doc = getDocument(url);
-		
+
+	public static ArrayList<Event> getEventsInfoFromURL(String url) {
+		Document doc = null;
+		try {
+			doc = getDocument(url);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		NodeList nodes = doc.getElementsByTagName("event");
 		ArrayList<Event> allEvents = new ArrayList<Event>();
 
@@ -46,8 +51,8 @@ public class XMLParser {
 				Event event = makeEvent(title, location, date, start, duration);
 				allEvents.add(event);
 			}
-
 		}
+		
 		return allEvents;
 	}
 

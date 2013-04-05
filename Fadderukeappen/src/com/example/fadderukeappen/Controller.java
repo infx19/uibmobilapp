@@ -33,8 +33,10 @@ public class Controller {
 		ArrayList<Event> allEvents = new ArrayList<Event>();
 		ArrayList<Event> eventsFromXML;
 
-		Log.e("PAST_URL", ".....");
-		eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+
+		//eventsFromXML = XMLParser.getEventsInfoFromURL(url);
+		DownloadInfoTask async = new DownloadInfoTask();
+		eventsFromXML = async.execute(url).get();
 		
 		allEvents.addAll(eventsFromXML);
 		

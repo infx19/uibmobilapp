@@ -23,7 +23,6 @@ public class DateTest {
 		testDate1 = new Date(2013,1,1);
 		testDate2 = new Date(testDateString);
 		testDate3 = new Date(2013,10,31);
-		
 	}
 
 	@Test
