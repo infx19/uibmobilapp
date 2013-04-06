@@ -30,7 +30,7 @@ public class DayActivity extends Activity {
 		Log.d("DEBUG", "OnCreate");
 		setContentView(R.layout.activity_day);
 		listLayout = (LinearLayout) findViewById(R.id.activity_day_linear_layout);
-		listLayout.setOrientation(LinearLayout.VERTICAL);	
+		listLayout.setOrientation(LinearLayout.VERTICAL);
 
 		Bundle extras = getIntent().getExtras();
 		dbEventDataSource = new DBEventDataSource(this);
@@ -55,7 +55,7 @@ public class DayActivity extends Activity {
 		super.onNewIntent(intent);
 		Log.d("DEBUG", "OnNewIntent");
 		listLayout.removeAllViews();
-		listLayout.setOrientation(LinearLayout.VERTICAL);	
+		listLayout.setOrientation(LinearLayout.VERTICAL);
 
 		Bundle extras = intent.getExtras();
 		if (extras != null) {
@@ -77,11 +77,12 @@ public class DayActivity extends Activity {
 		insertEventViews(getAllEventViews(date));
 	}
 
-	protected void insertEventViews(ArrayList<EventLayout> eventViews) {		
+	protected void insertEventViews(ArrayList<EventLayout> eventViews) {
 
-		for(EventLayout el : eventViews) {
+		for (EventLayout el : eventViews) {
 			FrameLayout borderParent = new FrameLayout(this);
-			borderParent.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.WRAP_CONTENT));
+			borderParent.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+					FrameLayout.LayoutParams.WRAP_CONTENT));
 			borderParent.setPadding(0, 1, 0, 1);
 			borderParent.setBackgroundColor(Color.GRAY);
 			borderParent.addView(el);
@@ -95,8 +96,9 @@ public class DayActivity extends Activity {
 		Collections.sort(events);
 		Log.d("DEBUG", "SIZE: " + events.size());
 		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
-		for(int i = 1; i < events.size(); i++) {
-			eventLayouts.add(new EventLayout(this, events.get(i).getTitle(), events.get(i).getTime().toString(), events.get(i).getLocation()));
+		for (int i = 1; i < events.size(); i++) {
+			eventLayouts.add(new EventLayout(this, events.get(i).getTitle(), events.get(i).getTime().toString(), events
+					.get(i).getLocation()));
 		}
 		return eventLayouts;
 
@@ -105,13 +107,13 @@ public class DayActivity extends Activity {
 	@Override
 	public void onBackPressed() {
 		dbEventDataSource.close();
-		super.onBackPressed();	
+		super.onBackPressed();
 	}
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		boolean handled = super.dispatchTouchEvent(ev);
-		handled = mGesture.onTouchEvent(ev);    
+		handled = mGesture.onTouchEvent(ev);
 		return handled;
 	}
 
@@ -124,7 +126,7 @@ public class DayActivity extends Activity {
 
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-			if(velocityX >= 1000) {
+			if (velocityX >= 1000) {
 				Date d = date.prevDate();
 				Log.v("fling", "FLING to " + d.toString());
 

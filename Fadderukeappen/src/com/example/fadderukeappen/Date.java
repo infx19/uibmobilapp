@@ -3,9 +3,9 @@ package com.example.fadderukeappen;
 import android.util.Log;
 
 public class Date implements Comparable<Date> {
-	final static int[] DAYS_IN_MONTH = {31,28,31,30,31,30,31,31,30,31,30,31};
+	final static int[] DAYS_IN_MONTH = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	final static int MONTHS_IN_YEAR = 12;
-	
+
 	int year;
 	int month;
 	int day;
@@ -23,7 +23,7 @@ public class Date implements Comparable<Date> {
 		this.day = Integer.parseInt(parts[0]);
 		this.month = Integer.parseInt(parts[1]);
 		this.year = Integer.parseInt(parts[2]);
-		
+
 	}
 
 	public int getYear() {
@@ -49,10 +49,10 @@ public class Date implements Comparable<Date> {
 	public void setDay(int day) {
 		this.day = day;
 	}
-	
+
 	public String toString() {
 		return String.format("%02d.%02d.%d", day, month, year);
-		
+
 	}
 
 	@Override
@@ -81,36 +81,36 @@ public class Date implements Comparable<Date> {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
-		if(!(o instanceof Date)) {
+		if (!(o instanceof Date)) {
 			return false;
 		} else {
 			Date comp = (Date) o;
 			return this.compareTo(comp) == 0;
 		}
-		
+
 	}
 
 	public Date nextDate() {
 		int day = getDay();
 		int month = getMonth();
 		int year = getYear();
-		
-		if(getDay() == DAYS_IN_MONTH[getMonth()-1]) {
+
+		if (getDay() == DAYS_IN_MONTH[getMonth() - 1]) {
 			day = 1;
-			if(getMonth() == MONTHS_IN_YEAR) {
+			if (getMonth() == MONTHS_IN_YEAR) {
 				month = 1;
 				year++;
 			} else {
 				month++;
 			}
-			
+
 		} else {
 			day++;
 		}
-		
+
 		return new Date(year, month, day);
 	}
 
@@ -118,20 +118,20 @@ public class Date implements Comparable<Date> {
 		int day = getDay();
 		int month = getMonth();
 		int year = getYear();
-		
-		if(getDay() == 1) {
-			day = DAYS_IN_MONTH[getMonth()-1];
-			if(getMonth() == 1) {
+
+		if (getDay() == 1) {
+			day = DAYS_IN_MONTH[getMonth() - 1];
+			if (getMonth() == 1) {
 				month = MONTHS_IN_YEAR;
 				year--;
 			} else {
 				month--;
 			}
-			
+
 		} else {
 			day--;
 		}
-		
+
 		return new Date(year, month, day);
 	}
 }
