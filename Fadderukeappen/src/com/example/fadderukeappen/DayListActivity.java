@@ -26,7 +26,6 @@ public class DayListActivity extends Activity implements OnClickListener{
 		Date date = new Date(2013, 8, 15);
 		addDaysFromDate(date, 7);
 		
-		
 		dbEventDataSource = new DBEventDataSource(this);
 		dbEventDataSource.open();
 		Controller.updateDB(dbEventDataSource);
@@ -56,13 +55,10 @@ public class DayListActivity extends Activity implements OnClickListener{
 			
 			String date = b.getHint().toString();
 		
-			 Intent intent = new Intent(DayListActivity.this, DayActivity.class);
-			 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-			 intent.putExtra("com.example.fadderukeappen.daylist", date);
-		     startActivity(intent);
-			
-			
+			Intent intent = new Intent(DayListActivity.this, DayActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+			intent.putExtra("com.example.fadderukeappen.daylist", date);
+		    startActivity(intent);
 		}
-		
 	}
 }
