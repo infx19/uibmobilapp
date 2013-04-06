@@ -8,12 +8,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class DBEventDataSource {
 	
 	private SQLiteDatabase database;
 	private DBEventHelper dbEventHelper;
-	String[] allColumns;
+	private String[] allColumns;
 	
 	public DBEventDataSource() {}
 	
@@ -31,7 +32,9 @@ public class DBEventDataSource {
 	}
 	
 	public ContentValues setEventValuesForStorage(Event event) {
+		
 		ContentValues values = new ContentValues();
+		Log.e("content_values",".......");
 		values.put(allColumns[1], event.getTitle());
 		values.put(allColumns[2], event.getLocation());
 		values.put(allColumns[3], event.getDate().toString());
@@ -105,5 +108,9 @@ public class DBEventDataSource {
 		
 		event.setTime(time);
 		return event;
+	}
+	
+	public String[] getAllColumns() {
+		return allColumns;
 	}
 }
