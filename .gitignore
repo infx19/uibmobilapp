@@ -21,7 +21,7 @@
 #*.jar
 *.rar
 *.tar
-#*.zip
+*.zip
 
 # Logs and databases #
 ######################
@@ -51,4 +51,3 @@ bin/
 *.nxd
 out/
 kinect/.classpath
-#opnedatatestapp/
