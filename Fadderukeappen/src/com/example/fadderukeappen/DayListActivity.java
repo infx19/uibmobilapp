@@ -23,8 +23,7 @@ public class DayListActivity extends Activity implements OnClickListener{
 		linLay = (LinearLayout) findViewById(R.id.activity_daylist_linear_layout);
 		linLay.setOrientation(LinearLayout.VERTICAL);
 		
-		Date date = new Date(2013, 8, 15);
-		addDaysFromDate(date, 7);
+		addDaysFromDate(Controller.FADDERUKE_START_DATE, 7);
 		
 		dbEventDataSource = new DBEventDataSource(this);
 		dbEventDataSource.open();
