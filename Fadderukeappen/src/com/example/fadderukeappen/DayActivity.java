@@ -96,7 +96,7 @@ public class DayActivity extends Activity {
 		Collections.sort(events);
 		Log.d("DEBUG", "SIZE: " + events.size());
 		ArrayList<EventLayout> eventLayouts = new ArrayList<EventLayout>();
-		for (int i = 1; i < events.size(); i++) {
+		for (int i = 0; i < events.size(); i++) {
 			eventLayouts.add(new EventLayout(this, events.get(i).getTitle(), events.get(i).getTime().toString(), events
 					.get(i).getLocation()));
 		}
