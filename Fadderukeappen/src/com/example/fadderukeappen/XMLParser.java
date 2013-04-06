@@ -69,7 +69,6 @@ public class XMLParser {
 		try {
 			is = conn.getInputStream();
 			is = new BufferedInputStream(is);
-			Log.e("PAST_URL", ".");
 			Document doc = builder.parse(is);
 			doc.getDocumentElement().normalize();
 

@@ -8,14 +8,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQueryBuilder;
-import android.util.Log;
 
 public class DBEventDataSource {
 	
-	SQLiteDatabase database;
-	DBEventHelper dbEventHelper;
-	private String[] allColumns;
+	private SQLiteDatabase database;
+	private DBEventHelper dbEventHelper;
+	String[] allColumns;
 	
 	public DBEventDataSource() {}
 	
@@ -32,7 +30,7 @@ public class DBEventDataSource {
 		database.close();
 	}
 	
-	public Event createEvent(Event event) {
+	public ContentValues setEventValuesForStorage(Event event) {
 		ContentValues values = new ContentValues();
 		values.put(allColumns[1], event.getTitle());
 		values.put(allColumns[2], event.getLocation());
@@ -41,6 +39,11 @@ public class DBEventDataSource {
 		values.put(allColumns[4], start.toString());
 		HoursAndMins duration = event.getTime().getDuration();
 		values.put(allColumns[5], duration.toString());
+		return values;
+	}
+	
+	public Event createEvent(Event event) {
+		ContentValues values = setEventValuesForStorage(event);
 		long insertId = database.insert(dbEventHelper.getTableName(), null, values);
 		Cursor cursor = database.query(dbEventHelper.getTableName(), allColumns, 
 				allColumns[0]+" = "+insertId, null, null, null, null);
