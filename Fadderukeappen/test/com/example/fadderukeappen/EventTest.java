@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.inf219.fadderukeappen.Event;
+
 public class EventTest {
 	
 	private Event testObject1;

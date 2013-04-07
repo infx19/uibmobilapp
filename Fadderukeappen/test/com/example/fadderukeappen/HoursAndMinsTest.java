@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.inf219.fadderukeappen.HoursAndMins;
+
 public class HoursAndMinsTest {
 
 	private HoursAndMins testObject1;

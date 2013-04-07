@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.inf219.fadderukeappen.Date;
+
 public class DateTest {
 	
 	private Date testDate1;

@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fadderukeappen"
+    package="com.inf219.fadderukeappen"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    
+    <!-- Google Cloud Messaging -->
+    <permission android:name="com.inf219.fadderukeappen.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<uses-permission android:name="com.inf219.fadderukeappen.permission.C2D_MESSAGE" /> 
+	<!-- App receives GCM messages. -->
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<!-- GCM connects to Google Services. -->
+	<!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+	<!-- GCM requires a Google account. -->
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<!-- Keeps the processor from sleeping when a message is received. -->
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	
+	
 
     <uses-sdk
         android:minSdkVersion="9"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="17" />
 
     <application
         android:allowBackup="true"
@@ -17,19 +32,19 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.fadderukeappen.FullscreenActivity"
+            android:name="com.inf219.fadderukeappen.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.example.fadderukeappen.DayActivity"
+            android:name="com.inf219.fadderukeappen.DayActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.example.fadderukeappen.DayListActivity"
+            android:name="com.inf219.fadderukeappen.DayListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
@@ -39,6 +54,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Google Cloud Messaging -->
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
+ 			<intent-filter>
+    			<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+    			<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+    			<category android:name="com.inf219.fadderukeappen" />
+  			</intent-filter>
+		</receiver>
+		<service android:name=".GCMIntentService" />
     </application>
 
 </manifest>
