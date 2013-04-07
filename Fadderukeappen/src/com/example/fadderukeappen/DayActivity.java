@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
@@ -24,6 +25,7 @@ public class DayActivity extends Activity {
 
 	Date date;
 	LinearLayout listLayout;
+	TextView header;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,15 +37,17 @@ public class DayActivity extends Activity {
 		Bundle extras = getIntent().getExtras();
 		dbEventDataSource = new DBEventDataSource(this);
 		dbEventDataSource.open();
-
+		header = (TextView) findViewById(R.id.TextViewHeader);
+		
 		if (extras != null) {
 			String date = extras.getString("com.example.fadderukeappen.daylist");
 			this.date = new Date(date);
+			header.setText(date.toString());
 			Log.d("DEBUG", "Intent date is " + date);
 			displayEventsOnDate(this.date);
 		} else {
-
 			date = new Date("18.08.2013");
+			header.setText(date.toString());
 			displayEventsOnDate(date);
 		}
 
@@ -61,6 +65,7 @@ public class DayActivity extends Activity {
 		if (extras != null) {
 			String date = extras.getString("com.example.fadderukeappen.daylist");
 			this.date = new Date(date);
+			
 			displayEventsOnDate(this.date);
 
 		} else {
