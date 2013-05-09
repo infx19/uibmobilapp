@@ -13,6 +13,7 @@ public class Controller {
 	
 	private static final String id = "123456789abc";
 
+	
 	public static List<Event> getAllEvents() throws Exception {
 		// from XML:
 		//String url1 = "https://timeplan.data.uib.no/KEYuhyhu9any/xml/timeplanliste/now/INF237";
