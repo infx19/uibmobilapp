@@ -20,12 +20,10 @@ import android.view.MotionEvent;
 public class DayActivity extends Activity {
 
 	private GestureDetector mGesture;
-
 	private DBEventDataSource dbEventDataSource;
-
-	Date date;
-	LinearLayout listLayout;
-	TextView header;
+	private Date date;
+	private LinearLayout listLayout;
+	private TextView header;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
