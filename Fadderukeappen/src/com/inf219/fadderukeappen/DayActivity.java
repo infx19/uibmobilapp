@@ -40,7 +40,7 @@ public class DayActivity extends Activity {
 		header = (TextView) findViewById(R.id.TextViewHeader);
 		
 		if (extras != null) {
-			String date = extras.getString("com.example.fadderukeappen.daylist");
+			String date = extras.getString("com.inf219.fadderukeappen.daylist");
 			this.date = new Date(date);
 			header.setText(date.toString());
 			Log.d("DEBUG", "Intent date is " + date);
