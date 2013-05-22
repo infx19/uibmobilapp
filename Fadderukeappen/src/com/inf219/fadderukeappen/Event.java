@@ -127,15 +127,15 @@ public class Event implements Comparable<Event> {
 	}
 
 	@Override
-	public int compareTo(Event another) {
-		if (this.getDate().compareTo(another.getDate()) == 0) {
-			if (this.getTime().compareTo(another.getTime()) == 0) {
-				return this.getTitle().compareTo(another.getTitle());
+	public int compareTo(Event anotherEvent) {
+		if (this.getDate().compareTo(anotherEvent.getDate()) == 0) {
+			if (this.getTime().compareTo(anotherEvent.getTime()) == 0) {
+				return this.getTitle().compareTo(anotherEvent.getTitle());
 			} else {
-				return this.getTime().compareTo(another.getTime());
+				return this.getTime().compareTo(anotherEvent.getTime());
 			}
 		} else {
-			return this.getDate().compareTo(another.getDate());
+			return this.getDate().compareTo(anotherEvent.getDate());
 		}
 	}
 

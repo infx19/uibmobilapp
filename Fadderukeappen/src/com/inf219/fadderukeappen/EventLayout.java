@@ -7,9 +7,9 @@ import android.widget.TextView;
 
 public class EventLayout extends RelativeLayout {
 
-	TextView tvTime;
-	TextView tvName;
-	TextView tvLocation;
+	private TextView tvTime;
+	private TextView tvName;
+	private TextView tvLocation;
 
 	public EventLayout(Context context) {
 		super(context);
