@@ -9,8 +9,8 @@ import java.util.Locale;
  *
  */
 public class HoursAndMins implements Comparable<HoursAndMins> {
-	final static int MINUTES_IN_HOUR = 60;
-	final static int HOURS_IN_DAY = 24;
+	private final static int MINUTES_IN_HOUR = 60;
+	private final static int HOURS_IN_DAY = 24;
 	private int hours;
 	private int minutes;
 
@@ -58,15 +58,15 @@ public class HoursAndMins implements Comparable<HoursAndMins> {
 	}
 
 	@Override
-	public int compareTo(HoursAndMins another) {
-		if (this.getHours() > another.getHours())
+	public int compareTo(HoursAndMins anotherHoursAndMins) {
+		if (this.getHours() > anotherHoursAndMins.getHours())
 			return 1;
-		else if (this.getHours() < another.getHours())
+		else if (this.getHours() < anotherHoursAndMins.getHours())
 			return -1;
 		else {
-			if (this.getMinutes() == another.getMinutes())
+			if (this.getMinutes() == anotherHoursAndMins.getMinutes())
 				return 0;
-			else if (this.getMinutes() > another.getMinutes())
+			else if (this.getMinutes() > anotherHoursAndMins.getMinutes())
 				return 1;
 			else
 				return -1;
