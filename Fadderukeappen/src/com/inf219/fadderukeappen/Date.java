@@ -1,7 +1,12 @@
 package com.inf219.fadderukeappen;
 
-import android.util.Log;
 
+/**
+ * Date contains information about day, month and year.
+ * 
+ * @author Marianne
+ *
+ */
 public class Date implements Comparable<Date> {
 	final static int[] DAYS_IN_MONTH = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	final static int MONTHS_IN_YEAR = 12;
@@ -10,6 +15,13 @@ public class Date implements Comparable<Date> {
 	int month;
 	int day;
 
+	/**
+	 * Constructor that sets the year, month and day of the date
+	 * 
+	 * @param year The date's year 
+	 * @param month The date's month
+	 * @param day The date's day number
+	 */
 	public Date(int year, int month, int day) {
 		super();
 		this.year = year;
@@ -17,6 +29,11 @@ public class Date implements Comparable<Date> {
 		this.day = day;
 	}
 
+	/**
+	 *  * Constructor that sets the year, month and day of the date
+	 * 
+	 * @param date The date given as a string on the format DD.MM.YYYY
+	 */
 	public Date(String date) {
 		super();
 		String[] parts = date.split("\\.");
@@ -26,30 +43,55 @@ public class Date implements Comparable<Date> {
 
 	}
 
+	/**
+	 * @return The year of the date
+	 */
 	public int getYear() {
 		return year;
 	}
 
+	/**
+	 * Sets the year of the date
+	 * 
+	 * @param year The year of the date
+	 */
 	public void setYear(int year) {
 		this.year = year;
 	}
 
+	/**
+	 * @return The date's month
+	 */
 	public int getMonth() {
 		return month;
 	}
 
+	/**
+	 * Sets the date's month
+	 * 
+	 * @param month The date's month number
+	 */
 	public void setMonth(int month) {
 		this.month = month;
 	}
 
+	/**
+	 * @return The date's day number
+	 */
 	public int getDay() {
 		return day;
 	}
 
+	/**
+	 * Sets the date's day number
+	 * 
+	 * @param day The date's day number
+	 */
 	public void setDay(int day) {
 		this.day = day;
 	}
 
+	
 	public String toString() {
 		return String.format("%02d.%02d.%d", day, month, year);
 
@@ -93,6 +135,10 @@ public class Date implements Comparable<Date> {
 
 	}
 
+	/**
+	 * This function returns the following date after this date
+	 * @return The next date
+	 */
 	public Date nextDate() {
 		int day = getDay();
 		int month = getMonth();
@@ -114,6 +160,10 @@ public class Date implements Comparable<Date> {
 		return new Date(year, month, day);
 	}
 
+	/**
+	 * This function returns the previous date, the date before this date
+	 * @return The previous date
+	 */
 	public Date prevDate() {
 		int day = getDay();
 		int month = getMonth();
