@@ -22,37 +22,116 @@ public class HoursAndMinsTest {
 
 	@Test
 	public void testToString() {
-		assertEquals(testObject1.toString(), "05:05");
-		assertEquals(testObject2.toString(), "10:59");
+		for(int hours = 0; hours <= 24; hours++) {
+			for(int mins = 0; mins < 60; mins++) {
+				testObject1 = new HoursAndMins(hours, mins);
+				if(hours == 24) {
+					assertEquals(testObject1.toString(),String.format("%02d:%02d", 0, mins));
+				} else {
+					assertEquals(testObject1.toString(),String.format("%02d:%02d", hours, mins));
+				}
+			}
+		}
 	}
+
 
 	@Test
 	public void testCompareTo() {
-		assertEquals(testObject1.compareTo(testObject2), -1);
-		assertEquals(testObject2.compareTo(testObject1), 1);
-		assertEquals(testObject1.compareTo(testObject3), 0);
+		for(int hours = 0; hours <= 24; hours++) {
+			for(int mins = 0; mins < 60; mins++) {
+
+				for(int hours2 = 0; hours2 <= 24; hours2++) {
+					for(int mins2 = 0; mins2 < 60; mins2++) {
+						testObject1 = new HoursAndMins(hours, mins);
+						testObject2 = new HoursAndMins(hours2, mins2);
+
+						if(hours > hours2) {
+							assertEquals(testObject1.compareTo(testObject2), 1);
+						} else if(hours < hours2) {
+							assertEquals(testObject1.compareTo(testObject2), -1);
+						} else if (mins < mins2) {
+							assertEquals(testObject1.compareTo(testObject2), -1);
+						} else if (mins > mins2) {
+							assertEquals(testObject1.compareTo(testObject2), 1);
+						} else if (hours == hours2 && mins == mins2) {
+							assertEquals(hours, hours2);
+							assertEquals(mins, mins2);
+							assertEquals(testObject1.toString(), testObject2.toString());
+							assertEquals(testObject1.compareTo(testObject2), 0);
+						} else {
+
+						}
+
+
+					}
+
+				}
+
+			}
+
+		}
 	}
+
 
 	@Test
 	public void testEquals() {
-		assertTrue(testObject1.equals(testObject3));
-		assertFalse(testObject1.equals(testObject2));
+		for(int hours = 0; hours <= 24; hours++) {
+			for(int mins = 0; mins < 60; mins++) {
+
+				for(int hours2 = 0; hours2 <= 24; hours2++) {
+					for(int mins2 = 0; mins2 < 60; mins2++) {
+						testObject1 = new HoursAndMins(hours, mins);
+						testObject2 = new HoursAndMins(hours2, mins2);
+
+						if (hours == hours2 && mins == mins2) {
+							assertEquals(testObject1, testObject2);
+
+						} else {
+							assertNotEquals(testObject1, testObject2);
+						}
+
+					}
+
+				}
+
+			}
+
+		}
 	}
 
 	@Test
 	public void testCalculateEndTime() {
-		HoursAndMins end = HoursAndMins.calculateEndTime(testObject2,
-				testObject1);
-		// 10:59+05:05 = 16:04
-		assertEquals(end, new HoursAndMins(16, 4));
-		end = HoursAndMins.calculateEndTime(testObject1, testObject3);
-		// 05:05+05:05 = 10:10
-		assertEquals(end, new HoursAndMins(10, 10));
+		for(int hours = 0; hours <= 24; hours++) {
+			for(int mins = 0; mins < 60; mins++) {
+
+				for(int hours2 = 0; hours2 <= 24; hours2++) {
+					for(int mins2 = 0; mins2 < 60; mins2++) {
+						testObject1 = new HoursAndMins(hours, mins);
+						testObject2 = new HoursAndMins(hours2, mins2);
+
+						if(hours + hours2 < 24 &&  mins + mins2 < 60)
+							testObject3 = new HoursAndMins(hours + hours2, mins + mins2);
+						else if (hours + hours2 >= 24 && mins + mins2 >= 60 ) {
+							testObject3 = new HoursAndMins(24 - hours + hours2 + 1, 60 - (mins + mins2));
+						} else if (hours + hours2 >= 24)
+							testObject3 = new HoursAndMins(24 - hours + hours2, mins + mins2);
+						else if (mins + mins2 >= 60 && hours + hours2 >= 23)
+							testObject3 = new HoursAndMins(0, 60 - (mins + mins2));
+
+					}
+				}
+			}
+		}
+
 	}
 
 	@Test
 	public void testConvertToHoursAndMins() {
-		assertEquals(testObject1, HoursAndMins.convertToHoursAndMins("05:05"));
-		assertEquals(testObject2, HoursAndMins.convertToHoursAndMins("10:59"));
+		for(int hours = 0; hours <= 24; hours++) {
+			for(int mins = 0; mins < 60; mins++) {
+				testObject1 = new HoursAndMins(hours, mins);
+				assertEquals(HoursAndMins.convertToHoursAndMins(String.format("%02d:%02d", hours, mins)), testObject1);
+			}
+		}
 	}
 }
