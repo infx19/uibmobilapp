@@ -2,21 +2,41 @@ package com.inf219.fadderukeappen;
 
 import java.util.Locale;
 
+/**
+ * HoursAndMins contains the time in hours and minutes
+ * 
+ * @author Marianne
+ *
+ */
 public class HoursAndMins implements Comparable<HoursAndMins> {
 	final static int MINUTES_IN_HOUR = 60;
 	final static int HOURS_IN_DAY = 24;
 	private int hours;
 	private int minutes;
 
+	/**
+	 * Constructor that sets the hour and minute information
+	 * 
+	 * @param hours The hours of the time
+	 * @param minutes The minutes of the time
+	 */
 	public HoursAndMins(int hours, int minutes) {
 		this.hours = hours;
 		this.minutes = minutes;
 	}
 
+	/**
+	 * @return The number of hours
+	 */
 	public int getHours() {
 		return hours;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @param hours
+	 */
 	public void setHours(int hours) {
 		this.hours = hours;
 	}
