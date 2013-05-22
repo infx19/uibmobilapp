@@ -20,12 +20,10 @@ import android.view.MotionEvent;
 public class DayActivity extends Activity {
 
 	private GestureDetector mGesture;
-
 	private DBEventDataSource dbEventDataSource;
-
-	Date date;
-	LinearLayout listLayout;
-	TextView header;
+	private Date date;
+	private LinearLayout listLayout;
+	private TextView header;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -116,9 +114,9 @@ public class DayActivity extends Activity {
 	}
 
 	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
-		boolean handled = super.dispatchTouchEvent(ev);
-		handled = mGesture.onTouchEvent(ev);
+	public boolean dispatchTouchEvent(MotionEvent event) {
+		boolean handled = super.dispatchTouchEvent(event);
+		handled = mGesture.onTouchEvent(event);
 		return handled;
 	}
 

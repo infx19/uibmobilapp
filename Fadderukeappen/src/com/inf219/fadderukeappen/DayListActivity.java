@@ -11,10 +11,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class DayListActivity extends Activity implements OnClickListener{
-	final static String[] DAY_NAMES = {"Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"};
-	ArrayList<Button> dayButtons;
-	LinearLayout linLay;
-	DBEventDataSource dbEventDataSource; 
+	
+	private final static String[] DAY_NAMES = {"Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"};
+	private ArrayList<Button> dayButtons;
+	private LinearLayout linLay;
+	private DBEventDataSource dbEventDataSource; 
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		
