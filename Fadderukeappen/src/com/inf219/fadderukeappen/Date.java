@@ -8,7 +8,7 @@ package com.inf219.fadderukeappen;
  *
  */
 public class Date implements Comparable<Date> {
-	private final static int[] DAYS_IN_MONTH = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	public final static int[] DAYS_IN_MONTH = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	private final static int MONTHS_IN_YEAR = 12;
 
 	private int year;
