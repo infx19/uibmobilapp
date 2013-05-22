@@ -114,9 +114,9 @@ public class DayActivity extends Activity {
 	}
 
 	@Override
-	public boolean dispatchTouchEvent(MotionEvent ev) {
-		boolean handled = super.dispatchTouchEvent(ev);
-		handled = mGesture.onTouchEvent(ev);
+	public boolean dispatchTouchEvent(MotionEvent event) {
+		boolean handled = super.dispatchTouchEvent(event);
+		handled = mGesture.onTouchEvent(event);
 		return handled;
 	}
 
