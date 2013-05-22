@@ -63,7 +63,7 @@ public class DayActivity extends Activity {
 
 		Bundle extras = intent.getExtras();
 		if (extras != null) {
-			String date = extras.getString("com.example.fadderukeappen.daylist");
+			String date = extras.getString("com.inf219.fadderukeappen.daylist");
 			this.date = new Date(date);
 			
 			displayEventsOnDate(this.date);
@@ -151,7 +151,7 @@ public class DayActivity extends Activity {
 
 					Intent intent = new Intent(DayActivity.this, DayActivity.class);
 					intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-					intent.putExtra("com.example.fadderukeappen.daylist", d.toString());
+					intent.putExtra("com.inf219.fadderukeappen.daylist", d.toString());
 					startActivity(intent);
 					dbEventDataSource.close();
 					return true;
@@ -167,7 +167,7 @@ public class DayActivity extends Activity {
 
 					Intent intent = new Intent(DayActivity.this, DayActivity.class);
 					intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-					intent.putExtra("com.example.fadderukeappen.daylist", d.toString());
+					intent.putExtra("com.inf219.fadderukeappen.daylist", d.toString());
 					startActivity(intent);
 					dbEventDataSource.close();
 					return true;
