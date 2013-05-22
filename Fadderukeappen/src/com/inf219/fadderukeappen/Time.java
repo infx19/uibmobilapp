@@ -1,9 +1,9 @@
 package com.inf219.fadderukeappen;
 
 public class Time implements Comparable<Time> {
-	HoursAndMins start;
-	HoursAndMins duration;
-	HoursAndMins end;
+	private HoursAndMins start;
+	private HoursAndMins duration;
+	private HoursAndMins end;
 
 	public Time(int startHour, int startMinutes, int durationHour,
 			int durationMinutes) {
@@ -50,12 +50,12 @@ public class Time implements Comparable<Time> {
 	}
 	
 	@Override
-	public int compareTo(Time another) {
-		int comp = this.getStart().compareTo(another.getStart());
+	public int compareTo(Time anotherTime) {
+		int comp = this.getStart().compareTo(anotherTime.getStart());
 		if (comp != 0) {
 			return comp;
 		} else {
-			return this.getEnd().compareTo(another.getEnd());
+			return this.getEnd().compareTo(anotherTime.getEnd());
 		}
 	}
 	
