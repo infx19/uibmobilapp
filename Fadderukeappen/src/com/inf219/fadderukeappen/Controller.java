@@ -13,6 +13,19 @@ public class Controller {
 	
 	private static final String id = "123456789abc";
 
+	public static void updateDB(DBEventDataSource db) {
+		try {
+			List<Event> events = getAllEvents();
+
+			db.deleteAllEvents();
+			for (Event e : events) {
+				db.createEvent(e);
+			}
+		} catch (Exception e) {
+			Log.e("PARSINGERROR", "Couldn't get events from XML");
+			e.printStackTrace();
+		}
+	}
 	
 	public static List<Event> getAllEvents() throws Exception {
 		// from XML:
@@ -20,7 +33,7 @@ public class Controller {
 		String url = "https://raw.github.com/livarb/uibmobilapp/master/Fadderukeappen/Docs/XML/e3.xml";		
 
 		// eventsFromXML = XMLParser.getEventsInfoFromURL(url);
-		DownloadInfoTask async = new DownloadInfoTask();
+		DataThread async = new DataThread();
 		List<Event> eventsFromXML = async.execute(url).get();
 		
 		List<Event> allEvents = new ArrayList<Event>();
@@ -45,19 +58,7 @@ public class Controller {
 		return sortedEvents;
 	}
 
-	public static void updateDB(DBEventDataSource db) {
-		try {
-			List<Event> events = getAllEvents();
-
-			db.deleteAllEvents();
-			for (Event e : events) {
-				db.createEvent(e);
-			}
-		} catch (Exception e) {
-			Log.e("PARSINGERROR", "Couldn't get events from XML");
-			e.printStackTrace();
-		}
-	}
+	
 	
 	public static String getId() {
 		return id;

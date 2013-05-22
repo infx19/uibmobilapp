@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import android.os.AsyncTask;
 
-class DownloadInfoTask extends AsyncTask<String, Integer, ArrayList<Event>> {
+class DataThread extends AsyncTask<String, Integer, ArrayList<Event>> {
 	protected ArrayList<Event> doInBackground(String... urls) {
 		int count = urls.length;
 		ArrayList<Event> events = null;
