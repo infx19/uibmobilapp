@@ -1,11 +1,11 @@
 package com.inf219.fadderukeappen;
 
-import java.net.URL;
 import java.util.ArrayList;
 
 import android.os.AsyncTask;
 
 class DataThread extends AsyncTask<String, Integer, ArrayList<Event>> {
+	
 	protected ArrayList<Event> doInBackground(String... urls) {
 		int count = urls.length;
 		ArrayList<Event> events = null;
@@ -15,11 +15,11 @@ class DataThread extends AsyncTask<String, Integer, ArrayList<Event>> {
 		return events;
 	}
 
-	protected void onProgressUpdate(Integer... progress) {
-		// setProgressPercent(progress[0]);
-	}
-
-	protected void onPostExecute(Long result) {
-		// showDialog("Downloaded " + result + " bytes");
-	}
+//	protected void onProgressUpdate(Integer... progress) {
+//		// setProgressPercent(progress[0]);
+//	}
+//
+//	protected void onPostExecute(Long result) {
+//		// showDialog("Downloaded " + result + " bytes");
+//	}
 }

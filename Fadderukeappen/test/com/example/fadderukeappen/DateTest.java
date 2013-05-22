@@ -62,11 +62,11 @@ public class DateTest {
 	
 	@Test
 	public void testPrevDate() {
-		Date prev = testDate1.prevDate();
+		Date prev = testDate1.previousDate();
 		assertEquals(prev.getDay(), 31);
 		assertEquals(prev.getMonth(), 12);
 		assertEquals(prev.getYear(), testDate1.getYear()-1);
-		prev = testDate3.prevDate();
+		prev = testDate3.previousDate();
 		assertEquals(prev.getDay(), testDate3.getDay()-1);
 	}
 }

@@ -162,7 +162,7 @@ public class DayActivity extends Activity {
 						Log.v("DATE", "start date");
 						return false;
 					}
-					Date d = date.prevDate();
+					Date d = date.previousDate();
 					Log.v("fling", "FLING to " + d.toString() + velocityX);
 
 					Intent intent = new Intent(DayActivity.this, DayActivity.class);

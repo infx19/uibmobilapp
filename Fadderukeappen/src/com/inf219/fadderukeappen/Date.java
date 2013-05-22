@@ -8,12 +8,12 @@ package com.inf219.fadderukeappen;
  *
  */
 public class Date implements Comparable<Date> {
-	final static int[] DAYS_IN_MONTH = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	final static int MONTHS_IN_YEAR = 12;
+	private final static int[] DAYS_IN_MONTH = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private final static int MONTHS_IN_YEAR = 12;
 
-	int year;
-	int month;
-	int day;
+	private int year;
+	private int month;
+	private int day;
 
 	/**
 	 * Constructor that sets the year, month and day of the date
@@ -98,24 +98,24 @@ public class Date implements Comparable<Date> {
 	}
 
 	@Override
-	public int compareTo(Date another) {
-		if (this.getYear() != another.getYear()) {
-			if (this.getYear() > another.getYear()) {
+	public int compareTo(Date otherDate) {
+		if (this.getYear() != otherDate.getYear()) {
+			if (this.getYear() > otherDate.getYear()) {
 				return 1;
 			} else {
 				return -1;
 			}
 		} else {
-			if (this.getMonth() != another.getMonth()) {
-				if (this.getMonth() > another.getMonth()) {
+			if (this.getMonth() != otherDate.getMonth()) {
+				if (this.getMonth() > otherDate.getMonth()) {
 					return 1;
 				} else {
 					return -1;
 				}
 			} else {
-				if (this.getDay() == another.getDay()) {
+				if (this.getDay() == otherDate.getDay()) {
 					return 0;
-				} else if (this.getDay() > another.getDay()) {
+				} else if (this.getDay() > otherDate.getDay()) {
 					return 1;
 				} else {
 					return -1;
@@ -164,7 +164,7 @@ public class Date implements Comparable<Date> {
 	 * This function returns the previous date, the date before this date
 	 * @return The previous date
 	 */
-	public Date prevDate() {
+	public Date previousDate() {
 		int day = getDay();
 		int month = getMonth();
 		int year = getYear();
