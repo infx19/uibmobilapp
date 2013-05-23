@@ -1,11 +1,5 @@
 package com.inf219.fadderukeappen;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.util.List;
-
-import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -39,20 +33,6 @@ public class DBEventHelper extends SQLiteOpenHelper {
 		super(context, DATABASE_NAME_EVENT, null, DATABASE_VERSION);
 	}
 	
-	
-	
-	/*public void storeEventOnDevice(List<File> files) {
-		FileOutputStream fileOutputStream = null;
-		Resources
-		try {
-			for(File file : files) {
-				fileOutputStream = openFileOutput(file.getName(), Context.MODE_PRIVATE);
-				
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-	}*/
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
