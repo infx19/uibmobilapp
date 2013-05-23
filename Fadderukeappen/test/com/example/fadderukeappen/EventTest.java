@@ -21,5 +21,15 @@ public class EventTest {
 	public void testConstructors() {
 		
 	}
+	
+	@Test
+	public void testEquals() {
+	
+	}
+	
+	@Test
+	public void testCompareTo() {
+		
+	}
 
 }
