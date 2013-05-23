@@ -29,7 +29,6 @@ public class XMLParser {
 		try {
 			doc = getDocument(url);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		NodeList nodes = doc.getElementsByTagName("event");
@@ -57,7 +56,7 @@ public class XMLParser {
 	private static Document getDocument(String url1) throws Exception {
 		URL url = new URL(url1);
 		URLConnection conn = url.openConnection();
-		System.setProperty("java.net.preferIPv4Stack", "true");
+		//System.setProperty("java.net.preferIPv4Stack", "true");
 		// HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
 		// conn.setDoInput(true);
 		// conn.setRequestProperty("Connection", "close");

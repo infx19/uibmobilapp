@@ -36,10 +36,10 @@ public class Controller {
 		DataThread async = new DataThread();
 		List<Event> eventsFromXML = async.execute(url).get();
 		
-		List<Event> allEvents = new ArrayList<Event>();
-		allEvents.addAll(eventsFromXML);
+		//List<Event> allEvents = new ArrayList<Event>();
+		//allEvents.addAll(eventsFromXML);
 
-		return allEvents;
+		return eventsFromXML;
 	}
 
 //	public static List<Event> getEventsOnDate(Date date) throws Exception {
