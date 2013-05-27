@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 import android.os.AsyncTask;
 
+/**
+ * Denne klassen starter en separat tråd for nedlasting av data.
+ * Se http://developer.android.com/reference/android/os/AsyncTask.html for mer info * 
+ * 
+ * @author jru049,mgr090
+ *
+ */
 class DataThread extends AsyncTask<String, Integer, ArrayList<Event>> {
 	
 	protected ArrayList<Event> doInBackground(String... urls) {

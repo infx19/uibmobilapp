@@ -31,6 +31,13 @@ public class DBEventDataSource {
 		database.close();
 	}
 	
+	/**
+	 * Oppretter og fyller en ContentValues objekt.
+	 * Dette objektet blir brukt for å opprette et event i databasen.
+	 * 
+	 * @param event Eventet som skal lagres i databasen
+	 * @return Eventet som har blitt lagret i databasen
+	 */
 	public ContentValues setEventValuesForStorage(Event event) {
 		
 		ContentValues values = new ContentValues();
