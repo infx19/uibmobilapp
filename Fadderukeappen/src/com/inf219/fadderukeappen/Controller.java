@@ -32,7 +32,6 @@ public class Controller {
 		//String url1 = "https://timeplan.data.uib.no/KEYuhyhu9any/xml/timeplanliste/now/INF237";
 		String url = "https://raw.github.com/livarb/uibmobilapp/master/Fadderukeappen/Docs/XML/e3.xml";		
 
-		// eventsFromXML = XMLParser.getEventsInfoFromURL(url);
 		DataThread async = new DataThread();
 		List<Event> eventsFromXML = async.execute(url).get();
 		
