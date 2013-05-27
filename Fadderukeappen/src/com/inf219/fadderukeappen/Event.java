@@ -130,7 +130,10 @@ public class Event implements Comparable<Event> {
 	public int compareTo(Event anotherEvent) {
 		if (this.getDate().compareTo(anotherEvent.getDate()) == 0) {
 			if (this.getTime().compareTo(anotherEvent.getTime()) == 0) {
-				return this.getTitle().compareTo(anotherEvent.getTitle());
+				int comp = this.getTitle().compareTo(anotherEvent.getTitle());
+				if(comp > 0) return 1;
+				else if (comp < 0) return -1;
+				else return 0;
 			} else {
 				return this.getTime().compareTo(anotherEvent.getTime());
 			}

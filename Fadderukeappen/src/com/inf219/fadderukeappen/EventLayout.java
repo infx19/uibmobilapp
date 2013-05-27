@@ -5,6 +5,13 @@ import android.graphics.Color;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
+/**
+ * @author Marianne
+ *
+ *	Layout to show an Event's information.
+ *	Contains textfields for the name, time and location of the event.
+ */
 public class EventLayout extends RelativeLayout {
 
 	private TextView tvTime;

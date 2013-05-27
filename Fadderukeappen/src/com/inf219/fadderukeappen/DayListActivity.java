@@ -8,12 +8,23 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+/**
+ * @author Marianne
+ *
+ * This activity contains an overview of the days in Fadderuken
+ * The days are clickable and leads to the events for the day on the clicked button
+ */
 public class DayListActivity extends Activity implements OnClickListener{
 	
 	private final static String[] DAY_NAMES = {"Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"};
 	private LinearLayout linLay;
 	private DBEventDataSource dbEventDataSource; 
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 * 
+	 * When this activity is created, the database is updated
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
@@ -30,6 +41,13 @@ public class DayListActivity extends Activity implements OnClickListener{
 
 	}
 
+	/**
+	 * Adds the given number of days, starting on the given date,
+	 * to the overview of the days in Fadderuken
+	 * 
+	 * @param date The starting date of Fadderuken
+	 * @param numberOfDays The duration of Fadderuken
+	 */
 	private void addDaysFromDate(Date date, int numberOfDays) {
 		for(int i = 0; i < numberOfDays; i++) {
 			Button b = new Button(this);
@@ -44,6 +62,12 @@ public class DayListActivity extends Activity implements OnClickListener{
 	}
 	
 
+	/* (non-Javadoc)
+	 * @see android.view.View.OnClickListener#onClick(android.view.View)
+	 * 
+	 * When the user clicks a button, 
+	 * he is sent to an overview of the events belonging to that day
+	 */
 	@Override
 	public void onClick(View v) {
 		if(v instanceof Button) {
