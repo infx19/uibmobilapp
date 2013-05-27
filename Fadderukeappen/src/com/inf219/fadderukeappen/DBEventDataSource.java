@@ -81,7 +81,6 @@ public class DBEventDataSource {
 	}
 	
 	public List<Event> getAllEventsOnDate(Date date) {
-		//allColumns[4]+" DESC" allColumns[3]+"="+date.toString()
 		List<Event> events = new ArrayList<Event>();
 		Cursor cursor = database.query(dbEventHelper.getTableName(), 
 				allColumns, null, null, null, null, null);

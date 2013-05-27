@@ -16,10 +16,10 @@ class DataThread extends AsyncTask<String, Integer, ArrayList<Event>> {
 	}
 
 //	protected void onProgressUpdate(Integer... progress) {
-//		// setProgressPercent(progress[0]);
+//		 setProgressPercent(progress[0]);
 //	}
 //
 //	protected void onPostExecute(Long result) {
-//		// showDialog("Downloaded " + result + " bytes");
+//		 showDialog("Downloaded " + result + " bytes");
 //	}
 }

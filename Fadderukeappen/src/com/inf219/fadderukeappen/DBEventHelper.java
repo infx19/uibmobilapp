@@ -36,7 +36,6 @@ public class DBEventHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		//database.execSQL(DATABASE_CREATE);
 		database.execSQL("create table events(_id integer primary key autoincrement, title text not null, location text not null," +
 				"date text not null, start text not null, duration text not null);");
 		

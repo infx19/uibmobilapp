@@ -133,7 +133,6 @@ public class DayActivity extends Activity {
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 				float velocityY) {
-			//Log.d("---onFling---", e1.toString() + e2.toString() + "");
 
 			try {
 				if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
@@ -176,40 +175,6 @@ public class DayActivity extends Activity {
 			return false;
 		}
 
-
-		/*@Override
-		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-			if (velocityX >= 1000) {
-				if (date.equals(Controller.FADDERUKE_START_DATE)) {
-					Log.v("DATE", "start date");
-					return false;
-				}
-				Date d = date.prevDate();
-				Log.v("fling", "FLING to " + d.toString() + velocityX);
-
-				Intent intent = new Intent(DayActivity.this, DayActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-				intent.putExtra("com.example.fadderukeappen.daylist", d.toString());
-				startActivity(intent);
-				dbEventDataSource.close();
-				return true;
-			} else if (velocityX <= -1000) {
-				if (date.equals(Controller.FADDERUKE_END_DATE)) {
-					return false;
-				}
-				Date d = date.nextDate();
-				Log.v("fling", "FLING to " + d.toString() + velocityX);
-
-				Intent intent = new Intent(DayActivity.this, DayActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-				intent.putExtra("com.example.fadderukeappen.daylist", d.toString());
-				startActivity(intent);
-				dbEventDataSource.close();
-				return true;
-			}
-
-			return false;
-		}*/
 
 		@Override
 		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {

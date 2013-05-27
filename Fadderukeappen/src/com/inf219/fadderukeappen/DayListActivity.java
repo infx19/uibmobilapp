@@ -1,7 +1,5 @@
 package com.inf219.fadderukeappen;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import android.widget.LinearLayout;
 public class DayListActivity extends Activity implements OnClickListener{
 	
 	private final static String[] DAY_NAMES = {"Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"};
-	private ArrayList<Button> dayButtons;
 	private LinearLayout linLay;
 	private DBEventDataSource dbEventDataSource; 
 	
@@ -34,7 +31,6 @@ public class DayListActivity extends Activity implements OnClickListener{
 	}
 
 	private void addDaysFromDate(Date date, int numberOfDays) {
-		dayButtons = new ArrayList<Button>();
 		for(int i = 0; i < numberOfDays; i++) {
 			Button b = new Button(this);
 		
