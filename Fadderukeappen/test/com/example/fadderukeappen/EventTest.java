@@ -18,7 +18,7 @@ public class EventTest {
 	@Before
 	public void setUp() throws Exception {
 		testObject1 = new Event("test", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
-	
+		
 	}
 
 	@Test
@@ -38,13 +38,49 @@ public class EventTest {
 	
 	@Test
 	public void testEquals() {
+		testObject1 = new Event("test", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
+		testObject2 = new Event("test", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
 		assertEquals(testObject1, testObject1);
-	
+		assertEquals(testObject1, testObject2);
+		
+		testObject2 = new Event("test", "location", new Date(2000, 3, 12), new Time("10:15", "01:46"));
+		assertNotEquals(testObject1, testObject2);
+		
+		testObject2 = new Event("test", "location", new Date(2000, 3, 12), new Time("11:15", "01:45"));
+		assertNotEquals(testObject1, testObject2);
+		
+		testObject2 = new Event("test", "location", new Date(2000, 3, 17), new Time("10:15", "01:45"));
+		assertNotEquals(testObject1, testObject2);
+		
+		testObject2 = new Event("other_test", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
+		assertNotEquals(testObject1, testObject2);
 	}
 	
 	@Test
 	public void testCompareTo() {
+		testObject1 = new Event("test", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
+		testObject2 = new Event("test", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
 		assertEquals(0,testObject1.compareTo(testObject1));
+		assertEquals(0,testObject1.compareTo(testObject2));
+		
+		testObject2 = new Event("utest", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
+		assertEquals(-1,testObject1.compareTo(testObject2));
+		
+		testObject2 = new Event("atest", "location", new Date(2000, 3, 12), new Time("10:15", "01:45"));
+		assertEquals(1,testObject1.compareTo(testObject2));
+		
+		testObject2 = new Event("test", "location", new Date(2000, 3, 12), new Time("11:15", "01:45"));
+		assertEquals(-1,testObject1.compareTo(testObject2));
+		
+		testObject2 = new Event("test", "location", new Date(2000, 3, 12), new Time("09:15", "01:45"));
+		assertEquals(1,testObject1.compareTo(testObject2));
+		
+		testObject2 = new Event("test", "location", new Date(2000, 4, 12), new Time("10:15", "01:45"));
+		assertEquals(-1,testObject1.compareTo(testObject2));
+		
+		testObject2 = new Event("test", "location", new Date(2000, 2, 12), new Time("10:15", "01:45"));
+		assertEquals(1,testObject1.compareTo(testObject2));
+		
 	}
 
 }
