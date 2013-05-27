@@ -17,6 +17,10 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 
+/**
+ * @author Marianne
+ * Displays the events for a specific date
+ */
 public class DayActivity extends Activity {
 
 	private GestureDetector mGesture;
@@ -71,7 +75,7 @@ public class DayActivity extends Activity {
 			date = new Date("18.08.2013");
 			displayEventsOnDate(date);
 		}
-		Log.d("DEBUG", "Intent date isss " + date);
+		Log.d("DEBUG", "Intent date is " + date);
 		mGesture = new GestureDetector(this, mOnGesture);
 	}
 
@@ -80,6 +84,11 @@ public class DayActivity extends Activity {
 		insertEventViews(getAllEventViews(date));
 	}
 
+	/**
+	 * Adds the eventViews to the DayActivity's layout.
+	 * 
+	 * @param eventViews The eventViews that should be added to the layout
+	 */
 	protected void insertEventViews(ArrayList<EventLayout> eventViews) {
 
 		for (EventLayout el : eventViews) {
@@ -94,6 +103,12 @@ public class DayActivity extends Activity {
 
 	}
 
+	/**
+	 * Makes views representing the events for this date
+	 * 
+	 * @param date The given date
+	 * @return A list with layouts representing the events for this date
+	 */
 	protected ArrayList<EventLayout> getAllEventViews(Date date) {
 		List<Event> events = dbEventDataSource.getAllEventsOnDate(date);
 		Collections.sort(events);
@@ -120,6 +135,9 @@ public class DayActivity extends Activity {
 		return handled;
 	}
 
+	/**
+	 * The user can navigate from one DayActivity to another by swiping over the screen.
+	 */
 	private OnGestureListener mOnGesture = new GestureDetector.SimpleOnGestureListener() {
 
 		@Override
