@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 
 import android.graphics.Color;
@@ -187,8 +188,9 @@ public class DayActivity extends Activity {
 					dbEventDataSource.close();
 					return true;
 				}
-			} catch (Exception e) {
-				// nothing
+			} catch (ActivityNotFoundException anfe) {
+				//couldn't find activiyt
+				anfe.printStackTrace();
 			}
 			return false;
 		}
