@@ -11,13 +11,11 @@ public class HoursAndMinsTest {
 
 	private HoursAndMins testObject1;
 	private HoursAndMins testObject2;
-	private HoursAndMins testObject3;
-
 	@Before
 	public void setUp() throws Exception {
 		testObject1 = new HoursAndMins(5, 5);
 		testObject2 = new HoursAndMins(10, 59);
-		testObject3 = new HoursAndMins(5, 5);
+		new HoursAndMins(5, 5);
 	}
 
 	@Test
@@ -110,13 +108,13 @@ public class HoursAndMinsTest {
 						testObject2 = new HoursAndMins(hours2, mins2);
 
 						if(hours + hours2 < 24 &&  mins + mins2 < 60)
-							testObject3 = new HoursAndMins(hours + hours2, mins + mins2);
+							new HoursAndMins(hours + hours2, mins + mins2);
 						else if (hours + hours2 >= 24 && mins + mins2 >= 60 ) {
-							testObject3 = new HoursAndMins(24 - hours + hours2 + 1, 60 - (mins + mins2));
+							new HoursAndMins(24 - hours + hours2 + 1, 60 - (mins + mins2));
 						} else if (hours + hours2 >= 24)
-							testObject3 = new HoursAndMins(24 - hours + hours2, mins + mins2);
+							new HoursAndMins(24 - hours + hours2, mins + mins2);
 						else if (mins + mins2 >= 60 && hours + hours2 >= 23)
-							testObject3 = new HoursAndMins(0, 60 - (mins + mins2));
+							new HoursAndMins(0, 60 - (mins + mins2));
 
 					}
 				}
