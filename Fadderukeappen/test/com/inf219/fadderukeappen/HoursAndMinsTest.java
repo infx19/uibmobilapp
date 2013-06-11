@@ -32,7 +32,6 @@ public class HoursAndMinsTest {
 		}
 	}
 
-
 	@Test
 	public void testCompareTo() {
 		for(int hours = 0; hours <= 24; hours++) {
